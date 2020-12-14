@@ -2,7 +2,6 @@ package com.bolingcavalry.webservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,9 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WebServiceController {
 
-//    @Autowired
-//    private AccountService accountService;
-    
     @Autowired
     private AccountClient accountClient;
 
@@ -38,7 +34,6 @@ public class WebServiceController {
         StringBuilder sbud = new StringBuilder();
 
         for(int i=0;i<10;i++){
-//            sbud.append(accountService.getDataFromSpringCloudK8SProvider()).append("<br>");
             sbud.append(accountClient.getName()).append("<br>");
         }
 
