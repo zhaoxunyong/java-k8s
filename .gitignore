@@ -1,0 +1,13 @@
+.classpath
+.project
+.gradle
+.settings
+.pmd
+.checkstyle
+target/
+.idea
+.factorypath
+.DS_Store
+.vscode/
+.history/
+.mvn/

@@ -1,0 +1,273 @@
+   0.0 TEL | Telepresence 0.108 launched at Mon Dec 14 15:12:16 2020
+   0.0 TEL |   /usr/bin/telepresence --new-deployment web-service --run-shell
+   0.0 TEL | uname: uname_result(system='Linux', node='dave-PC', release='4.19.128-microsoft-standard', version='#1 SMP Tue Jun 23 12:58:10 UTC 2020', machine='x86_64', processor='x86_64')
+   0.0 TEL | Platform: linux
+   0.0 TEL | WSL: False
+   0.0 TEL | Python 3.8.2 (default, Jul 16 2020, 14:00:26)
+   0.0 TEL | [GCC 9.3.0]
+   0.0 TEL | BEGIN SPAN main.py:40(main)
+   0.0 TEL | BEGIN SPAN startup.py:83(set_kube_command)
+   0.0 TEL | Found kubectl -> /usr/local/bin/kubectl
+   0.1 TEL | [1] Capturing: kubectl config current-context
+   0.2 TEL | [1] captured in 0.07 secs.
+   0.2 TEL | [2] Capturing: kubectl --context docker-desktop version --short
+   0.3 TEL | [2] captured in 0.10 secs.
+   0.3 TEL | [3] Capturing: kubectl --context docker-desktop config view -o json
+   0.4 TEL | [3] captured in 0.07 secs.
+   0.4 TEL | [4] Capturing: kubectl --context docker-desktop api-versions
+   0.5 TEL | [4] captured in 0.12 secs.
+   0.5 TEL | Command: kubectl 1.19.3
+   0.5 TEL | Context: docker-desktop, namespace: default, version: 1.19.3
+   0.5 TEL | Looks like we're in a local VM, e.g. minikube.
+   0.5 TEL | END SPAN startup.py:83(set_kube_command)    0.5s
+   0.5 >>> | Using a Pod instead of a Deployment for the Telepresence proxy. If you experience problems, please file an issue!
+   0.5 >>> | Set the environment variable TELEPRESENCE_USE_DEPLOYMENT to any non-empty value to force the old behavior, e.g.,
+   0.5 >>> |     env TELEPRESENCE_USE_DEPLOYMENT=1 telepresence --run curl hello
+   0.5 >>> | 
+   0.5 TEL | Found ssh -> /usr/bin/ssh
+   0.5 TEL | [5] Capturing: ssh -V
+   0.5 TEL | [5] captured in 0.01 secs.
+   0.5 TEL | Found bash -> /usr/bin/bash
+   0.5 TEL | Found sshuttle-telepresence -> /usr/libexec/sshuttle-telepresence
+   0.5 TEL | Found conntrack -> /usr/sbin/conntrack
+   0.5 TEL | Found iptables -> /usr/sbin/iptables
+   0.5 TEL | Found sudo -> /usr/bin/sudo
+   0.5 TEL | [6] Running: sudo -n echo -n
+   0.5 TEL | [6] ran in 0.01 secs.
+   0.5 TEL | [7] Capturing: sudo iptables --list
+   0.5 TEL | [7] captured in 0.01 secs.
+   0.5 >>> | Starting proxy with method 'vpn-tcp', which has the following limitations: All processes are affected, only one telepresence can run per machine, and you can't use other VPNs. You may need to add cloud hosts and headless services with --also-proxy. For a full list of method limitations see https://telepresence.io/reference/methods.html
+   0.5 TEL | Found sshfs -> /usr/bin/sshfs
+   0.5 TEL | Found fusermount -> /usr/bin/fusermount
+   0.5 >>> | Volumes are rooted at $TELEPRESENCE_ROOT. See https://telepresence.io/howto/volumes.html for details.
+   0.5 TEL | [8] Running: kubectl --context docker-desktop --namespace default get pods telepresence-connectivity-check --ignore-not-found
+   0.6 TEL | [8] ran in 0.10 secs.
+   2.5 TEL | Scout info: {'latest_version': '0.108', 'application': 'telepresence', 'notices': []}
+   2.5 >>> | Starting network proxy to cluster using new Pod web-service
+   2.5 TEL | [9] Running: kubectl --context docker-desktop --namespace default create -f -
+   3.0   9 | pod/web-service created
+   3.1 TEL | [9] ran in 0.56 secs.
+   3.1 TEL | BEGIN SPAN remote.py:109(wait_for_pod)
+   3.1 TEL | [10] Running: kubectl --context docker-desktop --namespace default wait --for=condition=ready --timeout=60s pod/web-service
+   5.7  10 | pod/web-service condition met
+   5.7 TEL | [10] ran in 2.61 secs.
+   5.7 TEL | [11] Capturing: kubectl --context docker-desktop --namespace default get pod web-service -o json
+   5.8 TEL | [11] captured in 0.11 secs.
+   5.8 TEL | END SPAN remote.py:109(wait_for_pod)    2.7s
+   5.8 TEL | BEGIN SPAN connect.py:37(connect)
+   5.8 TEL | [12] Launching kubectl logs: kubectl --context docker-desktop --namespace default logs -f web-service --container telepresence --tail=10
+   5.8 TEL | [13] Launching kubectl port-forward: kubectl --context docker-desktop --namespace default port-forward web-service 43299:8022
+   5.8 TEL | [14] Running: ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 -q -p 43299 telepresence@127.0.0.1 /bin/true
+   5.8 TEL | [14] exit 255 in 0.02 secs.
+   6.0  12 | Pod's namespace is 'default'
+   6.0  12 | Listening...
+   6.0  12 | 2020-12-14T07:12:21+0000 [-] Loading ./forwarder.py...
+   6.0  12 | 2020-12-14T07:12:21+0000 [-] SOCKSv5Factory starting on 9050
+   6.0  12 | 2020-12-14T07:12:21+0000 [socks.SOCKSv5Factory#info] Starting factory <socks.SOCKSv5Factory object at 0x7f7047d67828>
+   6.0  12 | 2020-12-14T07:12:21+0000 [-] DNSDatagramProtocol starting on 9053
+   6.0  12 | 2020-12-14T07:12:21+0000 [-] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047d67a20>
+   6.0  12 | 2020-12-14T07:12:21+0000 [-] Loaded.
+   6.0  12 | 2020-12-14T07:12:21+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 20.3.0 (/usr/bin/python3.6 3.6.8) starting up.
+   6.0  12 | 2020-12-14T07:12:21+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+   6.0  13 | Forwarding from 127.0.0.1:43299 -> 8022
+   6.0  13 | Forwarding from [::1]:43299 -> 8022
+   6.1 TEL | [15] Running: ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 -q -p 43299 telepresence@127.0.0.1 /bin/true
+   6.1  13 | Handling connection for 43299
+   6.3 TEL | [15] ran in 0.22 secs.
+   6.3 >>> | 
+   6.3 >>> | No traffic is being forwarded from the remote Deployment to your local machine. You can use the --expose option to specify which ports you want to forward.
+   6.3 >>> | 
+   6.3 TEL | Launching Web server for proxy poll
+   6.3 TEL | [16] Launching SSH port forward (socks and proxy poll): ssh -N -oServerAliveInterval=1 -oServerAliveCountMax=10 -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 -q -p 43299 telepresence@127.0.0.1 -L127.0.0.1:37355:127.0.0.1:9050 -R9055:127.0.0.1:40107
+   6.3 TEL | END SPAN connect.py:37(connect)    0.5s
+   6.3 TEL | BEGIN SPAN remote_env.py:29(get_remote_env)
+   6.3 TEL | [17] Capturing: kubectl --context docker-desktop --namespace default exec web-service --container telepresence -- python3 podinfo.py
+   6.3  13 | Handling connection for 43299
+   6.7 TEL | [17] captured in 0.35 secs.
+   6.7 TEL | END SPAN remote_env.py:29(get_remote_env)    0.4s
+   6.7 TEL | BEGIN SPAN mount.py:30(mount_remote_volumes)
+   6.7 TEL | [18] Running: sshfs -p 43299 -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 telepresence@127.0.0.1:/ /tmp/tel-p8qyi060/fs
+   6.7  13 | Handling connection for 43299
+   6.8 TEL | [18] ran in 0.14 secs.
+   6.8 TEL | END SPAN mount.py:30(mount_remote_volumes)    0.1s
+   6.8 TEL | BEGIN SPAN vpn.py:62(connect_sshuttle)
+   6.8 TEL | BEGIN SPAN cidr.py:113(get_proxy_cidrs)
+   6.8 TEL | END SPAN cidr.py:113(get_proxy_cidrs)    0.0s
+   6.8 TEL | [19] Launching sshuttle: sshuttle-telepresence -v --dns --method nat -e 'ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5' -r telepresence@127.0.0.1:43299 --to-ns 127.0.0.1:9053 10.96.0.0/12 10.1.0.0/24 192.168.65.0/24
+   6.8 TEL | BEGIN SPAN vpn.py:85(connect_sshuttle,sshuttle-wait)
+   6.8 TEL | Wait for vpn-tcp connection: hellotelepresence-0
+   6.8 TEL | [20] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-0")'
+   7.5  19 | Starting sshuttle proxy.
+   8.1  19 | firewall manager: Starting firewall with Python version 3.8.2
+   8.1  19 | firewall manager: ready method name nat.
+   8.1  19 | IPv6 enabled: False
+   8.1  19 | UDP enabled: False
+   8.1  19 | DNS enabled: True
+   8.1  19 | TCP redirector listening on ('127.0.0.1', 12300).
+   8.1  19 | DNS listening on ('127.0.0.1', 12300).
+   8.1  19 | Starting client with Python version 3.8.2
+   8.1  19 | c : connecting to server...
+   8.1  13 | Handling connection for 43299
+   8.2  19 | Warning: Permanently added '[127.0.0.1]:43299' (ECDSA) to the list of known hosts.
+   8.4  19 | Starting server with Python version 3.6.8
+   8.4  19 |  s: latency control setting = True
+   8.4  19 |  s: available routes:
+   8.4  19 |  s:   2/10.1.0.0/16
+   8.4  19 | c : Connected.
+   8.4  19 | firewall manager: setting up.
+   8.4  19 | >> iptables -t nat -N sshuttle-12300
+   8.4  19 | >> iptables -t nat -F sshuttle-12300
+   8.4  19 | >> iptables -t nat -I OUTPUT 1 -j sshuttle-12300
+   8.4  19 | >> iptables -t nat -I PREROUTING 1 -j sshuttle-12300
+   8.4  19 | >> iptables -t nat -A sshuttle-12300 -j RETURN --dest 127.0.0.1/32 -p tcp
+   8.4  19 | >> iptables -t nat -A sshuttle-12300 -j REDIRECT --dest 10.1.0.0/24 -p tcp --to-ports 12300 -m ttl ! --ttl 42
+   8.4  19 | >> iptables -t nat -A sshuttle-12300 -j REDIRECT --dest 192.168.65.0/24 -p tcp --to-ports 12300 -m ttl ! --ttl 42
+   8.4  19 | >> iptables -t nat -A sshuttle-12300 -j REDIRECT --dest 10.96.0.0/12 -p tcp --to-ports 12300 -m ttl ! --ttl 42
+   8.4  19 | >> iptables -t nat -A sshuttle-12300 -j REDIRECT --dest 172.22.208.1/32 -p udp --dport 53 --to-ports 12300 -m ttl ! --ttl 42
+   8.4  19 | >> iptables -t nat -A sshuttle-12300 -j REDIRECT --dest 224.0.0.252/32 -p udp --dport 5355 --to-ports 12300 -m ttl ! --ttl 42
+   8.4  19 | conntrack v1.4.4 (conntrack-tools): 0 flow entries have been deleted.
+   9.2 TEL | [20] exit 1 in 2.42 secs.
+   9.2 TEL | [21] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-0.a.sanity.check.telepresence.io")'
+   9.3  19 | c : DNS request from ('172.22.208.79', 46013) to None: 68 bytes
+   9.3  12 | 2020-12-14T07:12:25+0000 [stdout#info] Sanity check: b'hellotelepresence-0.a.sanity.check.telepresence.io'
+   9.7 TEL | [21] exit 1 in 0.42 secs.
+   9.8 TEL | Wait for vpn-tcp connection: hellotelepresence-1
+   9.8 TEL | [22] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-1")'
+   9.9  19 | c : DNS request from ('172.22.208.79', 45581) to None: 37 bytes
+   9.9  12 | 2020-12-14T07:12:26+0000 [stdout#info] Set DNS suffix we filter out to: [()]
+   9.9  12 | 2020-12-14T07:12:26+0000 [stdout#info] Result for b'hellotelepresence-1' is ['127.0.0.1']
+   9.9 TEL | [22] captured in 0.12 secs.
+   9.9 TEL | Resolved hellotelepresence-1. 2 more...
+   9.9 TEL | [23] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-1.a.sanity.check.telepresence.io")'
+  10.0  19 | c : DNS request from ('172.22.208.79', 40655) to None: 68 bytes
+  10.0  12 | 2020-12-14T07:12:26+0000 [stdout#info] Sanity check: b'hellotelepresence-1.a.sanity.check.telepresence.io'
+  10.5 TEL | [23] exit 1 in 0.57 secs.
+  10.6 TEL | Wait for vpn-tcp connection: hellotelepresence-2
+  10.6 TEL | [24] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-2")'
+  10.7  19 | c : DNS request from ('172.22.208.79', 43867) to None: 37 bytes
+  10.7  12 | 2020-12-14T07:12:27+0000 [stdout#info] Result for b'hellotelepresence-2' is ['127.0.0.1']
+  10.8 TEL | [24] captured in 0.18 secs.
+  10.8 TEL | Resolved hellotelepresence-2. 1 more...
+  10.8 TEL | [25] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-2.a.sanity.check.telepresence.io")'
+  10.8  19 | c : DNS request from ('172.22.208.79', 42822) to None: 68 bytes
+  10.8  12 | 2020-12-14T07:12:27+0000 [stdout#info] Sanity check: b'hellotelepresence-2.a.sanity.check.telepresence.io'
+  11.3 TEL | [25] exit 1 in 0.52 secs.
+  11.4 TEL | Wait for vpn-tcp connection: hellotelepresence-3
+  11.4 TEL | [26] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-3")'
+  11.5  19 | c : DNS request from ('172.22.208.79', 48270) to None: 37 bytes
+  11.5  12 | 2020-12-14T07:12:27+0000 [stdout#info] Result for b'hellotelepresence-3' is ['127.0.0.1']
+  11.5 TEL | [26] captured in 0.12 secs.
+  11.5 TEL | Resolved hellotelepresence-3. 0 more...
+  11.5 TEL | END SPAN vpn.py:85(connect_sshuttle,sshuttle-wait)    4.7s
+  11.5 TEL | END SPAN vpn.py:62(connect_sshuttle)    4.7s
+  11.5 >>> | Setup complete. Launching your command.
+  11.5 TEL | Everything launched. Waiting to exit...
+  11.5 TEL | BEGIN SPAN runner.py:729(wait_for_exit)
+  30.6 TEL | [27] Running: sudo -n echo -n
+  30.7 TEL | [27] ran in 0.15 secs.
+  35.4 TEL | (proxy checking local liveness)
+  35.5  12 | 2020-12-14T07:12:51+0000 [Poll#info] Checkpoint
+  43.0  19 | c : DNS request from ('172.22.208.79', 45667) to None: 33 bytes
+  43.0  19 | c : DNS request from ('172.22.208.79', 45667) to None: 33 bytes
+  43.1  12 | 2020-12-14T07:12:59+0000 [stdout#info] A query: b'account-service'
+  43.1  12 | 2020-12-14T07:12:59+0000 [stdout#info] RESOLVING b'account-service.default.svc.cluster.local'
+  43.1  12 | 2020-12-14T07:12:59+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 62620
+  43.1  12 | 2020-12-14T07:12:59+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dba908>
+  43.1  12 | 2020-12-14T07:12:59+0000 [stdout#info] AAAA query, sending back A instead: b'account-service'
+  43.1  12 | 2020-12-14T07:12:59+0000 [stdout#info] A query: b'account-service'
+  43.1  12 | 2020-12-14T07:12:59+0000 [stdout#info] RESOLVING b'account-service.default.svc.cluster.local'
+  43.1  12 | 2020-12-14T07:12:59+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 32871
+  43.1  12 | 2020-12-14T07:12:59+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbacc0>
+  43.1  12 | 2020-12-14T07:12:59+0000 [stdout#info] RESULT: ([<RR name=account-service type=A class=IN ttl=30s auth=True>], [], [])
+  43.1  19 | c : Accept TCP: 172.22.208.79:57554 -> 10.108.54.119:8080.
+  43.1  12 | 2020-12-14T07:12:59+0000 [stdout#info] RESULT: ([<RR name=account-service type=A class=IN ttl=30s auth=True>], [], [])
+  43.1  12 | 2020-12-14T07:12:59+0000 [-] (UDP Port 32871 Closed)
+  43.1  12 | 2020-12-14T07:12:59+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbacc0>
+  43.1  12 | 2020-12-14T07:12:59+0000 [-] (UDP Port 62620 Closed)
+  43.1  12 | 2020-12-14T07:12:59+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dba908>
+  47.1  19 | c : DNS request from ('172.22.208.79', 35099) to None: 44 bytes
+  47.1  12 | 2020-12-14T07:13:03+0000 [stdout#info] 12 query: b'79.208.22.172.in-addr.arpa'
+  47.1  12 | 2020-12-14T07:13:03+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 5799
+  47.1  12 | 2020-12-14T07:13:03+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbac88>
+  47.1  12 | 2020-12-14T07:13:03+0000 [-] (UDP Port 5799 Closed)
+  47.1  12 | 2020-12-14T07:13:03+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbac88>
+  49.4  19 | c : DNS request from ('172.22.208.79', 44623) to None: 44 bytes
+  49.4  12 | 2020-12-14T07:13:05+0000 [stdout#info] 12 query: b'79.208.22.172.in-addr.arpa'
+  49.4  12 | 2020-12-14T07:13:05+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 45971
+  49.4  12 | 2020-12-14T07:13:05+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbadd8>
+  50.4  12 | 2020-12-14T07:13:06+0000 [-] DNSDatagramProtocol starting on 5518
+  50.4  12 | 2020-12-14T07:13:06+0000 [-] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbac88>
+  50.4  12 | 2020-12-14T07:13:06+0000 [-] (UDP Port 45971 Closed)
+  50.4  12 | 2020-12-14T07:13:06+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbadd8>
+  53.4  12 | 2020-12-14T07:13:09+0000 [-] DNSDatagramProtocol starting on 55067
+  53.4  12 | 2020-12-14T07:13:09+0000 [-] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbae10>
+  53.4  12 | 2020-12-14T07:13:09+0000 [-] (UDP Port 5518 Closed)
+  53.4  12 | 2020-12-14T07:13:09+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbac88>
+  53.4  12 | 2020-12-14T07:13:09+0000 [-] (UDP Port 55067 Closed)
+  53.4  12 | 2020-12-14T07:13:09+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbae10>
+  57.8  19 | c : DNS request from ('172.22.208.79', 44866) to None: 44 bytes
+  57.8  12 | 2020-12-14T07:13:14+0000 [stdout#info] 12 query: b'79.208.22.172.in-addr.arpa'
+  57.8  12 | 2020-12-14T07:13:14+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 8675
+  57.8  12 | 2020-12-14T07:13:14+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbacf8>
+  57.8  12 | 2020-12-14T07:13:14+0000 [-] (UDP Port 8675 Closed)
+  57.8  12 | 2020-12-14T07:13:14+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbacf8>
+  58.1  19 | c : DNS request from ('172.22.208.79', 49561) to None: 44 bytes
+  58.1  12 | 2020-12-14T07:13:14+0000 [stdout#info] 12 query: b'79.208.22.172.in-addr.arpa'
+  58.1  12 | 2020-12-14T07:13:14+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 13061
+  58.1  12 | 2020-12-14T07:13:14+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbad68>
+  58.2  12 | 2020-12-14T07:13:14+0000 [-] (UDP Port 13061 Closed)
+  58.2  12 | 2020-12-14T07:13:14+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dbad68>
+  60.8 TEL | [28] Running: sudo -n echo -n
+  60.8 TEL | [28] ran in 0.01 secs.
+  65.3 TEL | (proxy checking local liveness)
+  65.3  12 | 2020-12-14T07:13:21+0000 [Poll#info] Checkpoint
+  72.7  19 | c : DNS request from ('172.22.208.79', 53241) to None: 33 bytes
+  72.7  19 | c : DNS request from ('172.22.208.79', 53241) to None: 33 bytes
+  72.7  12 | 2020-12-14T07:13:29+0000 [stdout#info] A query: b'account-service'
+  72.7  12 | 2020-12-14T07:13:29+0000 [stdout#info] RESOLVING b'account-service.default.svc.cluster.local'
+  72.7  12 | 2020-12-14T07:13:29+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 43977
+  72.7  12 | 2020-12-14T07:13:29+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dba9b0>
+  72.7  12 | 2020-12-14T07:13:29+0000 [stdout#info] AAAA query, sending back A instead: b'account-service'
+  72.7  12 | 2020-12-14T07:13:29+0000 [stdout#info] A query: b'account-service'
+  72.7  12 | 2020-12-14T07:13:29+0000 [stdout#info] RESOLVING b'account-service.default.svc.cluster.local'
+  72.7  12 | 2020-12-14T07:13:29+0000 [DNSDatagramProtocol (UDP)] DNSDatagramProtocol starting on 29777
+  72.7  12 | 2020-12-14T07:13:29+0000 [DNSDatagramProtocol (UDP)] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047d12390>
+  72.7  12 | 2020-12-14T07:13:29+0000 [stdout#info] RESULT: ([<RR name=account-service type=A class=IN ttl=1s auth=True>], [], [])
+  72.7  12 | 2020-12-14T07:13:29+0000 [-] (UDP Port 43977 Closed)
+  72.7  19 | c : Accept TCP: 172.22.208.79:57812 -> 10.108.54.119:8080.
+  72.8  12 | 2020-12-14T07:13:29+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047dba9b0>
+  72.8  12 | 2020-12-14T07:13:29+0000 [stdout#info] RESULT: ([<RR name=account-service type=A class=IN ttl=1s auth=True>], [], [])
+  72.8  12 | 2020-12-14T07:13:29+0000 [-] (UDP Port 29777 Closed)
+  72.8  12 | 2020-12-14T07:13:29+0000 [-] Stopping protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7f7047d12390>
+  90.8 TEL | [29] Running: sudo -n echo -n
+  90.8 TEL | [29] ran in 0.02 secs.
+  95.3 TEL | (proxy checking local liveness)
+  95.3  12 | 2020-12-14T07:13:51+0000 [Poll#info] Checkpoint
+ 120.9 TEL | [30] Running: sudo -n echo -n
+ 120.9 TEL | [30] ran in 0.04 secs.
+ 125.3 TEL | (proxy checking local liveness)
+ 125.3  12 | 2020-12-14T07:14:21+0000 [Poll#info] Checkpoint
+ 150.9 TEL | [31] Running: sudo -n echo -n
+ 151.0 TEL | [31] ran in 0.06 secs.
+ 155.4 TEL | (proxy checking local liveness)
+ 155.4  12 | 2020-12-14T07:14:51+0000 [Poll#info] Checkpoint
+ 181.0 TEL | [32] Running: sudo -n echo -n
+ 181.1 TEL | [32] ran in 0.05 secs.
+ 185.3 TEL | (proxy checking local liveness)
+ 185.3  12 | 2020-12-14T07:15:21+0000 [Poll#info] Checkpoint
+ 211.1 TEL | [33] Running: sudo -n echo -n
+ 211.1 TEL | [33] ran in 0.03 secs.
+ 215.3 TEL | (proxy checking local liveness)
+ 215.3  12 | 2020-12-14T07:15:51+0000 [Poll#info] Checkpoint
+ 241.2 TEL | [34] Running: sudo -n echo -n
+ 241.2 TEL | [34] ran in 0.03 secs.
+ 245.3 TEL | (proxy checking local liveness)
+ 245.3  12 | 2020-12-14T07:16:21+0000 [Poll#info] Checkpoint
+ 271.3 TEL | [35] Running: sudo -n echo -n
+ 271.3 TEL | [35] ran in 0.02 secs.
+ 275.3 TEL | (proxy checking local liveness)
+ 275.3  12 | 2020-12-14T07:16:51+0000 [Poll#info] Checkpoint
+ 301.3 TEL | [36] Running: sudo -n echo -n
+ 301.3 TEL | [36] ran in 0.02 secs.
+ 305.3 TEL | (proxy checking local liveness)
+ 305.3  12 | 2020-12-14T07:17:21+0000 [Poll#info] Checkpoint
