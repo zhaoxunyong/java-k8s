@@ -15,3 +15,8 @@ backend:
 
 hystrix.command.BackendCall.execution.isolation.thread.timeoutInMilliseconds: 5000
 hystrix.threadpool.BackendCallThread.coreSize: 5
+
+#开启 Hystrix
+feign:
+  hystrix:
+    enabled: true

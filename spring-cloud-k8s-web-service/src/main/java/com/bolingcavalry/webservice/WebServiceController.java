@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WebServiceController {
 
+//    @Autowired
+//    private AccountService accountService;
+    
     @Autowired
-    private AccountService accountService;
+    private AccountClient accountClient;
 
     /**
      * 探针检查响应类
@@ -35,8 +38,8 @@ public class WebServiceController {
         StringBuilder sbud = new StringBuilder();
 
         for(int i=0;i<10;i++){
-            sbud.append(accountService.getDataFromSpringCloudK8SProvider())
-                .append("<br>");
+//            sbud.append(accountService.getDataFromSpringCloudK8SProvider()).append("<br>");
+            sbud.append(accountClient.getName()).append("<br>");
         }
 
         return sbud.toString();

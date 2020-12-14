@@ -271,3 +271,441 @@
  301.3 TEL | [36] ran in 0.02 secs.
  305.3 TEL | (proxy checking local liveness)
  305.3  12 | 2020-12-14T07:17:21+0000 [Poll#info] Checkpoint
+ 331.4 TEL | [37] Running: sudo -n echo -n
+ 331.4 TEL | [37] ran in 0.01 secs.
+ 335.3 TEL | (proxy checking local liveness)
+ 335.3  12 | 2020-12-14T07:17:51+0000 [Poll#info] Checkpoint
+ 361.4 TEL | [38] Running: sudo -n echo -n
+ 361.4 TEL | [38] ran in 0.02 secs.
+ 365.3 TEL | (proxy checking local liveness)
+ 365.3  12 | 2020-12-14T07:18:21+0000 [Poll#info] Checkpoint
+ 391.5 TEL | [39] Running: sudo -n echo -n
+ 391.5 TEL | [39] ran in 0.03 secs.
+ 395.3 TEL | (proxy checking local liveness)
+ 395.3  12 | 2020-12-14T07:18:51+0000 [Poll#info] Checkpoint
+ 421.5 TEL | [40] Running: sudo -n echo -n
+ 421.5 TEL | [40] ran in 0.01 secs.
+ 425.3 TEL | (proxy checking local liveness)
+ 425.4  12 | 2020-12-14T07:19:21+0000 [Poll#info] Checkpoint
+ 451.6 TEL | [41] Running: sudo -n echo -n
+ 451.6 TEL | [41] ran in 0.03 secs.
+ 455.3 TEL | (proxy checking local liveness)
+ 455.3  12 | 2020-12-14T07:19:51+0000 [Poll#info] Checkpoint
+ 481.7 TEL | [42] Running: sudo -n echo -n
+ 481.7 TEL | [42] ran in 0.02 secs.
+ 485.3 TEL | (proxy checking local liveness)
+ 485.3  12 | 2020-12-14T07:20:21+0000 [Poll#info] Checkpoint
+ 511.7 TEL | [43] Running: sudo -n echo -n
+ 511.7 TEL | [43] ran in 0.02 secs.
+ 515.3 TEL | (proxy checking local liveness)
+ 515.3  12 | 2020-12-14T07:20:51+0000 [Poll#info] Checkpoint
+ 541.8 TEL | [44] Running: sudo -n echo -n
+ 541.8 TEL | [44] ran in 0.01 secs.
+ 545.3 TEL | (proxy checking local liveness)
+ 545.3  12 | 2020-12-14T07:21:21+0000 [Poll#info] Checkpoint
+ 571.8 TEL | [45] Running: sudo -n echo -n
+ 571.9 TEL | [45] ran in 0.03 secs.
+ 575.3 TEL | (proxy checking local liveness)
+ 575.3  12 | 2020-12-14T07:21:51+0000 [Poll#info] Checkpoint
+ 601.9 TEL | [46] Running: sudo -n echo -n
+ 601.9 TEL | [46] ran in 0.03 secs.
+ 605.3 TEL | (proxy checking local liveness)
+ 605.4  12 | 2020-12-14T07:22:21+0000 [Poll#info] Checkpoint
+ 632.0 TEL | [47] Running: sudo -n echo -n
+ 632.0 TEL | [47] ran in 0.04 secs.
+ 635.3 TEL | (proxy checking local liveness)
+ 635.4  12 | 2020-12-14T07:22:51+0000 [Poll#info] Checkpoint
+ 662.0 TEL | [48] Running: sudo -n echo -n
+ 662.0 TEL | [48] ran in 0.02 secs.
+ 665.3 TEL | (proxy checking local liveness)
+ 665.3  12 | 2020-12-14T07:23:21+0000 [Poll#info] Checkpoint
+ 692.1 TEL | [49] Running: sudo -n echo -n
+ 692.1 TEL | [49] ran in 0.02 secs.
+ 695.4 TEL | (proxy checking local liveness)
+ 695.4  12 | 2020-12-14T07:23:51+0000 [Poll#info] Checkpoint
+ 722.2 TEL | [50] Running: sudo -n echo -n
+ 722.2 TEL | [50] ran in 0.02 secs.
+ 725.3 TEL | (proxy checking local liveness)
+ 725.3  12 | 2020-12-14T07:24:21+0000 [Poll#info] Checkpoint
+ 752.3 TEL | [51] Running: sudo -n echo -n
+ 752.3 TEL | [51] ran in 0.03 secs.
+ 755.3 TEL | (proxy checking local liveness)
+ 755.3  12 | 2020-12-14T07:24:51+0000 [Poll#info] Checkpoint
+ 782.4 TEL | [52] Running: sudo -n echo -n
+ 782.4 TEL | [52] ran in 0.03 secs.
+ 785.3 TEL | (proxy checking local liveness)
+ 785.4  12 | 2020-12-14T07:25:21+0000 [Poll#info] Checkpoint
+ 812.4 TEL | [53] Running: sudo -n echo -n
+ 812.5 TEL | [53] ran in 0.03 secs.
+ 815.3 TEL | (proxy checking local liveness)
+ 815.3  12 | 2020-12-14T07:25:51+0000 [Poll#info] Checkpoint
+ 842.5 TEL | [54] Running: sudo -n echo -n
+ 842.5 TEL | [54] ran in 0.03 secs.
+ 845.3 TEL | (proxy checking local liveness)
+ 845.4  12 | 2020-12-14T07:26:21+0000 [Poll#info] Checkpoint
+ 872.6 TEL | [55] Running: sudo -n echo -n
+ 872.6 TEL | [55] ran in 0.01 secs.
+ 875.3 TEL | (proxy checking local liveness)
+ 875.3  12 | 2020-12-14T07:26:51+0000 [Poll#info] Checkpoint
+ 902.6 TEL | [56] Running: sudo -n echo -n
+ 902.7 TEL | [56] ran in 0.03 secs.
+ 905.4 TEL | (proxy checking local liveness)
+ 905.4  12 | 2020-12-14T07:27:21+0000 [Poll#info] Checkpoint
+ 932.7 TEL | [57] Running: sudo -n echo -n
+ 932.7 TEL | [57] ran in 0.03 secs.
+ 935.3 TEL | (proxy checking local liveness)
+ 935.4  12 | 2020-12-14T07:27:51+0000 [Poll#info] Checkpoint
+ 962.8 TEL | [58] Running: sudo -n echo -n
+ 962.8 TEL | [58] ran in 0.01 secs.
+ 965.3 TEL | (proxy checking local liveness)
+ 965.3  12 | 2020-12-14T07:28:21+0000 [Poll#info] Checkpoint
+ 992.8 TEL | [59] Running: sudo -n echo -n
+ 992.8 TEL | [59] ran in 0.01 secs.
+ 995.3 TEL | (proxy checking local liveness)
+ 995.4  12 | 2020-12-14T07:28:51+0000 [Poll#info] Checkpoint
+1022.9 TEL | [60] Running: sudo -n echo -n
+1022.9 TEL | [60] ran in 0.02 secs.
+1025.3 TEL | (proxy checking local liveness)
+1025.4  12 | 2020-12-14T07:29:21+0000 [Poll#info] Checkpoint
+1052.9 TEL | [61] Running: sudo -n echo -n
+1053.0 TEL | [61] ran in 0.04 secs.
+1055.3 TEL | (proxy checking local liveness)
+1055.3  12 | 2020-12-14T07:29:51+0000 [Poll#info] Checkpoint
+1083.0 TEL | [62] Running: sudo -n echo -n
+1083.0 TEL | [62] ran in 0.03 secs.
+1085.3 TEL | (proxy checking local liveness)
+1085.3  12 | 2020-12-14T07:30:21+0000 [Poll#info] Checkpoint
+1113.1 TEL | [63] Running: sudo -n echo -n
+1113.1 TEL | [63] ran in 0.04 secs.
+1115.3 TEL | (proxy checking local liveness)
+1115.3  12 | 2020-12-14T07:30:51+0000 [Poll#info] Checkpoint
+1143.2 TEL | [64] Running: sudo -n echo -n
+1143.2 TEL | [64] ran in 0.03 secs.
+1145.3 TEL | (proxy checking local liveness)
+1145.3  12 | 2020-12-14T07:31:21+0000 [Poll#info] Checkpoint
+1173.2 TEL | [65] Running: sudo -n echo -n
+1173.3 TEL | [65] ran in 0.03 secs.
+1175.3 TEL | (proxy checking local liveness)
+1175.4  12 | 2020-12-14T07:31:51+0000 [Poll#info] Checkpoint
+1203.3 TEL | [66] Running: sudo -n echo -n
+1203.3 TEL | [66] ran in 0.02 secs.
+1205.3 TEL | (proxy checking local liveness)
+1205.3  12 | 2020-12-14T07:32:21+0000 [Poll#info] Checkpoint
+1233.4 TEL | [67] Running: sudo -n echo -n
+1233.4 TEL | [67] ran in 0.04 secs.
+1235.4 TEL | (proxy checking local liveness)
+1235.4  12 | 2020-12-14T07:32:51+0000 [Poll#info] Checkpoint
+1263.4 TEL | [68] Running: sudo -n echo -n
+1263.4 TEL | [68] ran in 0.02 secs.
+1265.3 TEL | (proxy checking local liveness)
+1265.3  12 | 2020-12-14T07:33:21+0000 [Poll#info] Checkpoint
+1293.5 TEL | [69] Running: sudo -n echo -n
+1293.5 TEL | [69] ran in 0.05 secs.
+1295.3 TEL | (proxy checking local liveness)
+1295.3  12 | 2020-12-14T07:33:51+0000 [Poll#info] Checkpoint
+1323.6 TEL | [70] Running: sudo -n echo -n
+1323.6 TEL | [70] ran in 0.03 secs.
+1325.3 TEL | (proxy checking local liveness)
+1325.3  12 | 2020-12-14T07:34:21+0000 [Poll#info] Checkpoint
+1353.6 TEL | [71] Running: sudo -n echo -n
+1353.6 TEL | [71] ran in 0.02 secs.
+1355.3 TEL | (proxy checking local liveness)
+1355.3  12 | 2020-12-14T07:34:51+0000 [Poll#info] Checkpoint
+1383.7 TEL | [72] Running: sudo -n echo -n
+1383.7 TEL | [72] ran in 0.01 secs.
+1385.3 TEL | (proxy checking local liveness)
+1385.3  12 | 2020-12-14T07:35:21+0000 [Poll#info] Checkpoint
+1413.7 TEL | [73] Running: sudo -n echo -n
+1413.8 TEL | [73] ran in 0.03 secs.
+1415.3 TEL | (proxy checking local liveness)
+1415.3  12 | 2020-12-14T07:35:51+0000 [Poll#info] Checkpoint
+1443.8 TEL | [74] Running: sudo -n echo -n
+1443.9 TEL | [74] ran in 0.05 secs.
+1445.3 TEL | (proxy checking local liveness)
+1445.4  12 | 2020-12-14T07:36:21+0000 [Poll#info] Checkpoint
+1473.9 TEL | [75] Running: sudo -n echo -n
+1473.9 TEL | [75] ran in 0.01 secs.
+1475.3 TEL | (proxy checking local liveness)
+1475.4  12 | 2020-12-14T07:36:51+0000 [Poll#info] Checkpoint
+1503.9 TEL | [76] Running: sudo -n echo -n
+1504.0 TEL | [76] ran in 0.02 secs.
+1505.3 TEL | (proxy checking local liveness)
+1505.4  12 | 2020-12-14T07:37:21+0000 [Poll#info] Checkpoint
+1534.0 TEL | [77] Running: sudo -n echo -n
+1534.0 TEL | [77] ran in 0.04 secs.
+1535.3 TEL | (proxy checking local liveness)
+1535.4  12 | 2020-12-14T07:37:51+0000 [Poll#info] Checkpoint
+1564.1 TEL | [78] Running: sudo -n echo -n
+1564.1 TEL | [78] ran in 0.03 secs.
+1565.3 TEL | (proxy checking local liveness)
+1565.3  12 | 2020-12-14T07:38:21+0000 [Poll#info] Checkpoint
+1594.1 TEL | [79] Running: sudo -n echo -n
+1594.2 TEL | [79] ran in 0.01 secs.
+1595.3 TEL | (proxy checking local liveness)
+1595.3  12 | 2020-12-14T07:38:51+0000 [Poll#info] Checkpoint
+1624.2 TEL | [80] Running: sudo -n echo -n
+1624.2 TEL | [80] ran in 0.04 secs.
+1625.4 TEL | (proxy checking local liveness)
+1625.4  12 | 2020-12-14T07:39:21+0000 [Poll#info] Checkpoint
+1654.3 TEL | [81] Running: sudo -n echo -n
+1654.3 TEL | [81] ran in 0.02 secs.
+1655.3 TEL | (proxy checking local liveness)
+1655.3  12 | 2020-12-14T07:39:51+0000 [Poll#info] Checkpoint
+1684.3 TEL | [82] Running: sudo -n echo -n
+1684.4 TEL | [82] ran in 0.01 secs.
+1685.3 TEL | (proxy checking local liveness)
+1685.3  12 | 2020-12-14T07:40:21+0000 [Poll#info] Checkpoint
+1714.4 TEL | [83] Running: sudo -n echo -n
+1714.4 TEL | [83] ran in 0.02 secs.
+1715.3 TEL | (proxy checking local liveness)
+1715.3  12 | 2020-12-14T07:40:51+0000 [Poll#info] Checkpoint
+1744.4 TEL | [84] Running: sudo -n echo -n
+1744.5 TEL | [84] ran in 0.02 secs.
+1745.3 TEL | (proxy checking local liveness)
+1745.3  12 | 2020-12-14T07:41:21+0000 [Poll#info] Checkpoint
+1774.5 TEL | [85] Running: sudo -n echo -n
+1774.5 TEL | [85] ran in 0.03 secs.
+1775.3 TEL | (proxy checking local liveness)
+1775.3  12 | 2020-12-14T07:41:51+0000 [Poll#info] Checkpoint
+1804.6 TEL | [86] Running: sudo -n echo -n
+1804.6 TEL | [86] ran in 0.03 secs.
+1805.3 TEL | (proxy checking local liveness)
+1805.3  12 | 2020-12-14T07:42:21+0000 [Poll#info] Checkpoint
+1834.6 TEL | [87] Running: sudo -n echo -n
+1834.6 TEL | [87] ran in 0.01 secs.
+1835.3 TEL | (proxy checking local liveness)
+1835.3  12 | 2020-12-14T07:42:51+0000 [Poll#info] Checkpoint
+1864.7 TEL | [88] Running: sudo -n echo -n
+1864.7 TEL | [88] ran in 0.01 secs.
+1865.3 TEL | (proxy checking local liveness)
+1865.3  12 | 2020-12-14T07:43:21+0000 [Poll#info] Checkpoint
+1894.7 TEL | [89] Running: sudo -n echo -n
+1894.7 TEL | [89] ran in 0.03 secs.
+1895.3 TEL | (proxy checking local liveness)
+1895.3  12 | 2020-12-14T07:43:51+0000 [Poll#info] Checkpoint
+1924.8 TEL | [90] Running: sudo -n echo -n
+1924.8 TEL | [90] ran in 0.03 secs.
+1925.3 TEL | (proxy checking local liveness)
+1925.3  12 | 2020-12-14T07:44:21+0000 [Poll#info] Checkpoint
+1954.8 TEL | [91] Running: sudo -n echo -n
+1954.9 TEL | [91] ran in 0.03 secs.
+1955.3 TEL | (proxy checking local liveness)
+1955.3  12 | 2020-12-14T07:44:51+0000 [Poll#info] Checkpoint
+1984.9 TEL | [92] Running: sudo -n echo -n
+1984.9 TEL | [92] ran in 0.03 secs.
+1985.3 TEL | (proxy checking local liveness)
+1985.3  12 | 2020-12-14T07:45:21+0000 [Poll#info] Checkpoint
+2015.0 TEL | [93] Running: sudo -n echo -n
+2015.0 TEL | [93] ran in 0.04 secs.
+2015.3 TEL | (proxy checking local liveness)
+2015.3  12 | 2020-12-14T07:45:51+0000 [Poll#info] Checkpoint
+2045.0 TEL | [94] Running: sudo -n echo -n
+2045.1 TEL | [94] ran in 0.03 secs.
+2045.3 TEL | (proxy checking local liveness)
+2045.3  12 | 2020-12-14T07:46:21+0000 [Poll#info] Checkpoint
+2075.1 TEL | [95] Running: sudo -n echo -n
+2075.1 TEL | [95] ran in 0.01 secs.
+2075.3 TEL | (proxy checking local liveness)
+2075.3  12 | 2020-12-14T07:46:51+0000 [Poll#info] Checkpoint
+2105.2 TEL | [96] Running: sudo -n echo -n
+2105.2 TEL | [96] ran in 0.04 secs.
+2105.3 TEL | (proxy checking local liveness)
+2105.3  12 | 2020-12-14T07:47:21+0000 [Poll#info] Checkpoint
+2135.2 TEL | [97] Running: sudo -n echo -n
+2135.2 TEL | [97] ran in 0.01 secs.
+2135.3 TEL | (proxy checking local liveness)
+2135.3  12 | 2020-12-14T07:47:51+0000 [Poll#info] Checkpoint
+2165.3 TEL | [98] Running: sudo -n echo -n
+2165.3 TEL | [98] ran in 0.02 secs.
+2165.3 TEL | (proxy checking local liveness)
+2165.3  12 | 2020-12-14T07:48:21+0000 [Poll#info] Checkpoint
+2195.3 TEL | [99] Running: sudo -n echo -n
+2195.3 TEL | (proxy checking local liveness)
+2195.3  12 | 2020-12-14T07:48:51+0000 [Poll#info] Checkpoint
+2195.3 TEL | [99] ran in 0.02 secs.
+2225.3 TEL | (proxy checking local liveness)
+2225.3  12 | 2020-12-14T07:49:21+0000 [Poll#info] Checkpoint
+2225.4 TEL | [100] Running: sudo -n echo -n
+2225.4 TEL | [100] ran in 0.01 secs.
+2255.3 TEL | (proxy checking local liveness)
+2255.3  12 | 2020-12-14T07:49:51+0000 [Poll#info] Checkpoint
+2255.4 TEL | [101] Running: sudo -n echo -n
+2255.4 TEL | [101] ran in 0.01 secs.
+2285.3 TEL | (proxy checking local liveness)
+2285.3  12 | 2020-12-14T07:50:21+0000 [Poll#info] Checkpoint
+2285.4 TEL | [102] Running: sudo -n echo -n
+2285.5 TEL | [102] ran in 0.01 secs.
+2315.3 TEL | (proxy checking local liveness)
+2315.3  12 | 2020-12-14T07:50:51+0000 [Poll#info] Checkpoint
+2315.5 TEL | [103] Running: sudo -n echo -n
+2315.5 TEL | [103] ran in 0.01 secs.
+2345.3 TEL | (proxy checking local liveness)
+2345.4  12 | 2020-12-14T07:51:21+0000 [Poll#info] Checkpoint
+2345.5 TEL | [104] Running: sudo -n echo -n
+2345.6 TEL | [104] ran in 0.02 secs.
+2368.2 TEL | Main process (bash --norc)
+2368.2 TEL |  exited with code 130.
+2368.2 TEL | END SPAN runner.py:729(wait_for_exit) 2356.7s
+2368.2 >>> | Your process exited with return code 130.
+2368.2 TEL | EXITING successful session.
+2368.2 >>> | Exit cleanup in progress
+2368.2 TEL | (Cleanup) Terminate local process
+2368.2 TEL | Local process is already dead (ret=130)
+2368.2 TEL | (Cleanup) Kill BG process [19] sshuttle
+2368.2 TEL | (Cleanup) Unmount remote filesystem
+2368.2 TEL | [105] Running: fusermount -z -u /tmp/tel-p8qyi060/fs
+2368.3 TEL | [105] ran in 0.02 secs.
+2368.3 TEL | (Cleanup) Kill BG process [16] SSH port forward (socks and proxy poll)
+2368.3 TEL | [16] SSH port forward (socks and proxy poll): exit 0
+2368.3 TEL | (Cleanup) Kill Web server for proxy poll
+2368.3  19 | >> iptables -t nat -D OUTPUT -j sshuttle-12300
+2368.3  19 | >> iptables -t nat -D PREROUTING -j sshuttle-12300
+2368.3  19 | >> iptables -t nat -F sshuttle-12300
+2368.3  19 | >> iptables -t nat -X sshuttle-12300
+2368.3  19 |  s: SW#-1:10.108.54.119:8080: deleting (3 remain)
+2368.3  19 |  s: SW'unknown':Mux#9: deleting (2 remain)
+2368.3  19 |  s: SW#-1:10.108.54.119:8080: deleting (1 remain)
+2368.3  19 |  s: SW'unknown':Mux#16: deleting (0 remain)
+2368.4 TEL | (Cleanup) Kill BG process [13] kubectl port-forward
+2368.4 TEL | [13] kubectl port-forward: exit -15
+2368.4 TEL | (Cleanup) Kill BG process [12] kubectl logs
+2368.4 TEL | [12] kubectl logs: exit -15
+2368.4 TEL | Background process (kubectl logs) exited with return code -15. Command was:
+2368.4 TEL |   kubectl --context docker-desktop --namespace default logs -f web-service --container telepresence --tail=10
+2368.4 TEL | (Cleanup) Delete proxy Pod
+2368.4 TEL | 
+2368.4 TEL | Recent output was:
+2368.4 TEL |   2020-12-14T07:46:51+0000 [Poll#info] Checkpoint
+2368.4 TEL |   2020-12-14T07:47:21+0000 [Poll#info] Checkpoint
+2368.4 TEL |   2020-12-14T07:47:51+0000 [Poll#info] Checkpoint
+2368.4 >>> | Cleaning up Pod
+2368.4 TEL |   2020-12-14T07:48:21+0000 [Poll#info] Checkpoint
+2368.4 TEL | [106] Running: kubectl --context docker-desktop --namespace default delete --ignore-not-found --wait=false --selector=telepresence=71bda75449534d648e1ef0b9937c60de Pod
+2368.4 TEL |   2020-12-14T07:48:51+0000 [Poll#info] Checkpoint
+2368.4 TEL |   2020-12-14T07:49:21+0000 [Poll#info] Checkpoint
+2368.4 TEL |   2020-12-14T07:49:51+0000 [Poll#info] Checkpoint
+2368.4 TEL |   2020-12-14T07:50:21+0000 [Poll#info] Checkpoint
+2368.4 TEL |   2020-12-14T07:50:51+0000 [Poll#info] Checkpoint
+2368.4 TEL |   2020-12-14T07:51:21+0000 [Poll#info] Checkpoint
+2368.5 TEL | [19] sshuttle: exit -15
+2369.5 106 | pod "web-service" deleted
+2369.5 TEL | [106] ran in 1.09 secs.
+2369.5 TEL | (Cleanup) Kill sudo privileges holder
+2369.5 TEL | (Cleanup) Stop time tracking
+2369.5 TEL | END SPAN main.py:40(main) 2369.5s
+2369.5 TEL | SPAN SUMMARY:
+2369.5 TEL | 2369.5s main.py:40(main)
+2369.5 TEL |    0.5s   startup.py:83(set_kube_command)
+2369.5 TEL |    0.1s     1 kubectl config current-context
+2369.5 TEL |    0.1s     2 kubectl --context docker-desktop version --short
+2369.5 TEL |    0.1s     3 kubectl --context docker-desktop config view -o json
+2369.5 TEL |    0.1s     4 kubectl --context docker-desktop api-versions
+2369.5 TEL |    0.0s   5 ssh -V
+2369.5 TEL |    0.0s   6 sudo -n echo -n
+2369.5 TEL |    0.0s   7 sudo iptables --list
+2369.5 TEL |    0.1s   8 kubectl --context docker-desktop --namespace default get pods telepresence-con
+2369.5 TEL |    0.6s   9 kubectl --context docker-desktop --namespace default create -f -
+2369.5 TEL |    2.7s   remote.py:109(wait_for_pod)
+2369.5 TEL |    2.6s     10 kubectl --context docker-desktop --namespace default wait --for=condition=rea
+2369.5 TEL |    0.1s     11 kubectl --context docker-desktop --namespace default get pod web-service -o j
+2369.5 TEL |    0.5s   connect.py:37(connect)
+2369.5 TEL |    0.0s     14 ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -o
+2369.5 TEL |    0.2s     15 ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -o
+2369.5 TEL |    0.4s   remote_env.py:29(get_remote_env)
+2369.5 TEL |    0.4s     17 kubectl --context docker-desktop --namespace default exec web-service --conta
+2369.5 TEL |    0.1s   mount.py:30(mount_remote_volumes)
+2369.5 TEL |    0.1s     18 sshfs -p 43299 -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/
+2369.5 TEL |    4.7s   vpn.py:62(connect_sshuttle)
+2369.5 TEL |    0.0s     cidr.py:113(get_proxy_cidrs)
+2369.5 TEL |    4.7s     vpn.py:85(connect_sshuttle,sshuttle-wait)
+2369.5 TEL |    2.4s       20 python3 -c 'import socket; socket.gethostbyname("hellotelepresence-0")'
+2369.5 TEL |    0.4s       21 python3 -c 'import socket; socket.gethostbyname("hellotelepresence-0.a.sanity
+2369.5 TEL |    0.1s       22 python3 -c 'import socket; socket.gethostbyname("hellotelepresence-1")'
+2369.5 TEL |    0.6s       23 python3 -c 'import socket; socket.gethostbyname("hellotelepresence-1.a.sanity
+2369.5 TEL |    0.2s       24 python3 -c 'import socket; socket.gethostbyname("hellotelepresence-2")'
+2369.5 TEL |    0.5s       25 python3 -c 'import socket; socket.gethostbyname("hellotelepresence-2.a.sanity
+2369.5 TEL |    0.1s       26 python3 -c 'import socket; socket.gethostbyname("hellotelepresence-3")'
+2369.5 TEL | 2356.7s   runner.py:729(wait_for_exit)
+2369.5 TEL |    0.2s     27 sudo -n echo -n
+2369.5 TEL |    0.0s     28 sudo -n echo -n
+2369.5 TEL |    0.0s     29 sudo -n echo -n
+2369.5 TEL |    0.0s     30 sudo -n echo -n
+2369.5 TEL |    0.1s     31 sudo -n echo -n
+2369.5 TEL |    0.1s     32 sudo -n echo -n
+2369.5 TEL |    0.0s     33 sudo -n echo -n
+2369.5 TEL |    0.0s     34 sudo -n echo -n
+2369.5 TEL |    0.0s     35 sudo -n echo -n
+2369.5 TEL |    0.0s     36 sudo -n echo -n
+2369.5 TEL |    0.0s     37 sudo -n echo -n
+2369.5 TEL |    0.0s     38 sudo -n echo -n
+2369.5 TEL |    0.0s     39 sudo -n echo -n
+2369.5 TEL |    0.0s     40 sudo -n echo -n
+2369.5 TEL |    0.0s     41 sudo -n echo -n
+2369.5 TEL |    0.0s     42 sudo -n echo -n
+2369.5 TEL |    0.0s     43 sudo -n echo -n
+2369.5 TEL |    0.0s     44 sudo -n echo -n
+2369.5 TEL |    0.0s     45 sudo -n echo -n
+2369.5 TEL |    0.0s     46 sudo -n echo -n
+2369.5 TEL |    0.0s     47 sudo -n echo -n
+2369.5 TEL |    0.0s     48 sudo -n echo -n
+2369.5 TEL |    0.0s     49 sudo -n echo -n
+2369.5 TEL |    0.0s     50 sudo -n echo -n
+2369.5 TEL |    0.0s     51 sudo -n echo -n
+2369.5 TEL |    0.0s     52 sudo -n echo -n
+2369.5 TEL |    0.0s     53 sudo -n echo -n
+2369.5 TEL |    0.0s     54 sudo -n echo -n
+2369.5 TEL |    0.0s     55 sudo -n echo -n
+2369.5 TEL |    0.0s     56 sudo -n echo -n
+2369.5 TEL |    0.0s     57 sudo -n echo -n
+2369.5 TEL |    0.0s     58 sudo -n echo -n
+2369.5 TEL |    0.0s     59 sudo -n echo -n
+2369.5 TEL |    0.0s     60 sudo -n echo -n
+2369.5 TEL |    0.0s     61 sudo -n echo -n
+2369.5 TEL |    0.0s     62 sudo -n echo -n
+2369.5 TEL |    0.0s     63 sudo -n echo -n
+2369.5 TEL |    0.0s     64 sudo -n echo -n
+2369.5 TEL |    0.0s     65 sudo -n echo -n
+2369.5 TEL |    0.0s     66 sudo -n echo -n
+2369.5 TEL |    0.0s     67 sudo -n echo -n
+2369.5 TEL |    0.0s     68 sudo -n echo -n
+2369.5 TEL |    0.1s     69 sudo -n echo -n
+2369.5 TEL |    0.0s     70 sudo -n echo -n
+2369.5 TEL |    0.0s     71 sudo -n echo -n
+2369.5 TEL |    0.0s     72 sudo -n echo -n
+2369.5 TEL |    0.0s     73 sudo -n echo -n
+2369.5 TEL |    0.1s     74 sudo -n echo -n
+2369.5 TEL |    0.0s     75 sudo -n echo -n
+2369.5 TEL |    0.0s     76 sudo -n echo -n
+2369.5 TEL |    0.0s     77 sudo -n echo -n
+2369.5 TEL |    0.0s     78 sudo -n echo -n
+2369.5 TEL |    0.0s     79 sudo -n echo -n
+2369.5 TEL |    0.0s     80 sudo -n echo -n
+2369.5 TEL |    0.0s     81 sudo -n echo -n
+2369.5 TEL |    0.0s     82 sudo -n echo -n
+2369.5 TEL |    0.0s     83 sudo -n echo -n
+2369.5 TEL |    0.0s     84 sudo -n echo -n
+2369.5 TEL |    0.0s     85 sudo -n echo -n
+2369.5 TEL |    0.0s     86 sudo -n echo -n
+2369.5 TEL |    0.0s     87 sudo -n echo -n
+2369.5 TEL |    0.0s     88 sudo -n echo -n
+2369.5 TEL |    0.0s     89 sudo -n echo -n
+2369.6 TEL |    0.0s     90 sudo -n echo -n
+2369.6 TEL |    0.0s     91 sudo -n echo -n
+2369.6 TEL |    0.0s     92 sudo -n echo -n
+2369.6 TEL |    0.0s     93 sudo -n echo -n
+2369.6 TEL |    0.0s     94 sudo -n echo -n
+2369.6 TEL |    0.0s     95 sudo -n echo -n
+2369.6 TEL |    0.0s     96 sudo -n echo -n
+2369.6 TEL |    0.0s     97 sudo -n echo -n
+2369.6 TEL |    0.0s     98 sudo -n echo -n
+2369.6 TEL |    0.0s     99 sudo -n echo -n
+2369.6 TEL |    0.0s     100 sudo -n echo -n
+2369.6 TEL |    0.0s     101 sudo -n echo -n
+2369.6 TEL |    0.0s     102 sudo -n echo -n
+2369.6 TEL |    0.0s     103 sudo -n echo -n
+2369.6 TEL |    0.0s     104 sudo -n echo -n
+2369.6 TEL |    0.0s   105 fusermount -z -u /tmp/tel-p8qyi060/fs
+2369.6 TEL |    1.1s   106 kubectl --context docker-desktop --namespace default delete --ignore-not-fou
+2369.6 TEL | (Cleanup) Remove temporary directory
+2369.6 TEL | (Cleanup) Save caches
+2369.7 TEL | (sudo privileges holder thread exiting)
