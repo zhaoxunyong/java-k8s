@@ -8,7 +8,7 @@
         <version>2.3.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.bolingcavalry</groupId>
+    <groupId>com.xwallet</groupId>
     <artifactId>account-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>account-service</name>
@@ -88,7 +88,7 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
-            <plugin>
+            <!-- <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric8-maven-plugin</artifactId>
                 <version>${fabric8.maven.plugin.version}</version>
@@ -100,13 +100,16 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 
     <profiles>
         <profile>
             <id>kubernetes</id>
+              <properties>
+                <spring.profile>default</spring.profile>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -119,10 +122,23 @@
                                 <goals>
                                     <goal>resource</goal>
                                     <goal>build</goal>
+                                    <goal>push</goal>
+                                    <goal>deploy</goal>
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
+                        <configuration>   
+                            <dockerHost>tcp://registry.gcalls.cn:2375</dockerHost>
+                            <images>
+                                <image>
+                                <name>registry.gcalls.cn/xwallet/${project.name}:${project.version}</name>
+                                <build>
+                                    <dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
+                                    <contextDir>${project.basedir}/</contextDir>
+                                    <filter>@</filter>
+                                </build>
+                                </image>
+                            </images>
                             <enricher>
                                 <config>
                                     <fmp-service>

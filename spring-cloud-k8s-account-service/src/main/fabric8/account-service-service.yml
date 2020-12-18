@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello
+  labels:
+    app: account-service
+    group: com.xwallet
+    version: 0.0.1-SNAPSHOT
+    provider: fabric8
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: account-service
+    group: com.xwallet
+    version: 0.0.1-SNAPSHOT
+    provider: fabric8

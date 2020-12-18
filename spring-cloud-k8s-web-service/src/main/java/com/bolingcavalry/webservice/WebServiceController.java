@@ -1,6 +1,8 @@
 package com.bolingcavalry.webservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +16,9 @@ public class WebServiceController {
 
     @Autowired
     private AccountClient accountClient;
+
+    @Autowired
+    private QotmClient qotmClient;
 
     /**
      * 探针检查响应类
@@ -38,5 +43,11 @@ public class WebServiceController {
         }
 
         return sbud.toString();
+    }
+
+    @GetMapping(path = "/quote/{name}")
+    public String quote(@PathVariable String name) {
+        final String quote = qotmClient.getQuote().getQuote();
+        return String.format("A quote for %s: %s", name, quote);
     }
 }

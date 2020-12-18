@@ -17,15 +17,9 @@ public class DummyRestController {
         this.qotmClient = qotmClient;
     }
 
-    @GetMapping(path = "/quote1/{name}")
-    public String quote1(@PathVariable String name) {
-        final String quote = qotmClient.getQuote().getQuote();
-        return String.format("A quote1 for %s: %s", name, quote);
-    }
-
     @GetMapping(path = "/quote/{name}")
     public String quote(@PathVariable String name) {
         final String quote = qotmClient.getQuote().getQuote();
-        return String.format("A quote3 for %s: %s", name, quote);
+        return String.format("A quote for %s: %s", name, quote);
     }
 }

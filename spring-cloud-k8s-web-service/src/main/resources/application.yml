@@ -20,3 +20,18 @@ hystrix.threadpool.BackendCallThread.coreSize: 5
 feign:
   hystrix:
     enabled: true
+    
+#spring.cloud.kubernetes.loadbalancer.mode: SERVICE
+spring.cloud.kubernetes.discovery.all-namespaces: true
+
+    
+#kubernetes.auth.tryKubeConfig: false
+#spring.cloud.kubernetes.discovery.enabled: false
+#spring.cloud.kubernetes.ribbon.enabled: false
+#
+#qotm:
+#    ribbon:
+#        listOfServers: qotm:5000
+#account-service:
+#    ribbon:
+#        listOfServers: account-service:8080
