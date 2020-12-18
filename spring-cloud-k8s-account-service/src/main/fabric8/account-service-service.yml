@@ -1,7 +1,8 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: hello
+  name: account-service
+  namespace: dave
   labels:
     app: account-service
     group: com.xwallet
