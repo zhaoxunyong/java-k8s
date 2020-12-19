@@ -1,7 +1,7 @@
 FROM java:8-jdk
 RUN mkdir /app
 WORKDIR /app
-ENV APPNAME=account-service \
+ENV APPNAME=web-service \
     VERSION=0.0.1-SNAPSHOT \
     CONFIG=/config/
 RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
