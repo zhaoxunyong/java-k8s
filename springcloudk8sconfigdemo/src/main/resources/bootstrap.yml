@@ -1,8 +1,8 @@
 spring:
   application:
     name: springcloudk8sconfigdemo
-#  profiles:
-#    active: development
+  profiles:
+    active: development
   cloud:
     kubernetes:
       config:

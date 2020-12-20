@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
+        <version>2.3.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.xwallet</groupId>
@@ -119,9 +119,6 @@
     <profiles>
         <profile>
             <id>k8s</id>
-              <properties>
-                <spring.profile>default</spring.profile>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -134,23 +131,15 @@
                                 <goals>
                                     <goal>resource</goal>
                                     <goal>build</goal>
-<!--                                     <goal>push</goal> -->
-<!--                                     <goal>deploy</goal> -->
+                                    <goal>push</goal>
+                                    <goal>deploy</goal>
                                 </goals>
                             </execution>
                         </executions>
                         <configuration>   
-                            <dockerHost>tcp://registry.gcalls.cn:2375</dockerHost>
-                            <images>
-                                <image>
-                                <name>registry.gcalls.cn/xwallet/${project.name}:${project.version}</name>
-                                <build>
-                                    <dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
-                                    <contextDir>${project.basedir}/</contextDir>
-                                    <filter>@</filter>
-                                </build>
-                                </image>
-                            </images>
+                             <resources>
+					            <imagePullPolicy>Always</imagePullPolicy>
+					          </resources>
                             <enricher>
                                 <config>
                                     <fmp-service>
