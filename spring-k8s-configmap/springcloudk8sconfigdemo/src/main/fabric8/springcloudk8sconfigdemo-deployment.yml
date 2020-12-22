@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: springcloudk8sconfigdemo
+  namespace: default
+  labels:
+    app: springcloudk8sconfigdemo
+    group: com.xwallet
+    version: 0.0.1-SNAPSHOT
+    provider: fabric8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springcloudk8sconfigdemo
+      group: com.xwallet
+      version: 0.0.1-SNAPSHOT
+      provider: fabric8
+  template:
+    metadata:
+      labels:
+        app: springcloudk8sconfigdemo
+        group: com.xwallet
+        version: 0.0.1-SNAPSHOT
+        provider: fabric8
+    spec:
+      containers:
+      - name: springcloudk8sconfigdemo
+        #image: registry.gcalls.cn/xwallet/springcloudk8sconfigdemo:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

@@ -122,9 +122,12 @@
         </plugins>
     </build>
 
-    <profiles>
+     <profiles>
         <profile>
             <id>k8s</id>
+            <properties>
+                <spring.profile>default</spring.profile>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -143,9 +146,17 @@
                             </execution>
                         </executions>
                         <configuration>   
-                             <resources>
-					            <imagePullPolicy>Always</imagePullPolicy>
-					          </resources>
+                            <dockerHost>tcp://registry.gcalls.cn:2375</dockerHost>
+                            <images>
+                                <image>
+                                <name>registry.gcalls.cn/xwallet/${project.name}:${project.version}</name>
+                                <build>
+                                    <dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
+                                    <contextDir>${project.basedir}/</contextDir>
+                                    <filter>@</filter>
+                                </build>
+                                </image>
+                            </images>
                             <enricher>
                                 <config>
                                     <fmp-service>

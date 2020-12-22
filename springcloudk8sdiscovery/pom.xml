@@ -155,7 +155,7 @@
      <profiles>
         <profile>
             <id>k8s</id>
-              <properties>
+            <properties>
                 <spring.profile>default</spring.profile>
             </properties>
             <build>
