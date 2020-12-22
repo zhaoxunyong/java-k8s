@@ -5,10 +5,10 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.7.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.bolingcavalry</groupId>
+    <groupId>com.xwallet</groupId>
     <artifactId>springcloudk8sdiscovery</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>springcloudk8sdiscovery</name>
@@ -16,9 +16,10 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
-        <spring-cloud.version>2.2.6.RELEASE</spring-cloud.version>
-        <spring-cloud-kubernetes.version>1.1.7.RELEASE</spring-cloud-kubernetes.version>
+        <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
+        <spring-cloud.version>2.1.2.RELEASE</spring-cloud.version>
+        <spring-cloud-kubernetes.version>1.0.5.RELEASE</spring-cloud-kubernetes.version>
+		<!-- <spring_cloud_version>Greenwich.SR2</spring_cloud_version> -->
         <maven-checkstyle-plugin.failsOnError>false</maven-checkstyle-plugin.failsOnError>
         <maven-checkstyle-plugin.failsOnViolation>false</maven-checkstyle-plugin.failsOnViolation>
         <maven-checkstyle-plugin.includeTestSourceDirectory>false</maven-checkstyle-plugin.includeTestSourceDirectory>
@@ -109,7 +110,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -123,7 +123,6 @@
                 <!--skip deploy -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven-deploy-plugin.version}</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -131,32 +130,34 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <skipTests>true</skipTests>
                     <!-- Workaround for https://issues.apache.org/jira/browse/SUREFIRE-1588 -->
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>fabric8-maven-plugin</artifactId>
-                <version>${fabric8.maven.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>fmp</id>
-                        <goals>
-                            <goal>resource</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--             <plugin> -->
+<!--                 <groupId>io.fabric8</groupId> -->
+<!--                 <artifactId>fabric8-maven-plugin</artifactId> -->
+<!--                 <version>${fabric8.maven.plugin.version}</version> -->
+<!--                 <executions> -->
+<!--                     <execution> -->
+<!--                         <id>fmp</id> -->
+<!--                         <goals> -->
+<!--                             <goal>resource</goal> -->
+<!--                         </goals> -->
+<!--                     </execution> -->
+<!--                 </executions> -->
+<!--             </plugin> -->
         </plugins>
     </build>
 
-    <profiles>
+     <profiles>
         <profile>
-            <id>kubernetes</id>
+            <id>k8s</id>
+              <properties>
+                <spring.profile>default</spring.profile>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -169,10 +170,23 @@
                                 <goals>
                                     <goal>resource</goal>
                                     <goal>build</goal>
+                                    <goal>push</goal>
+                                    <goal>deploy</goal>
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
+                        <configuration>   
+                            <dockerHost>tcp://registry.gcalls.cn:2375</dockerHost>
+                            <images>
+                                <image>
+                                <name>registry.gcalls.cn/xwallet/${project.name}:${project.version}</name>
+                                <build>
+                                    <dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
+                                    <contextDir>${project.basedir}/</contextDir>
+                                    <filter>@</filter>
+                                </build>
+                                </image>
+                            </images>
                             <enricher>
                                 <config>
                                     <fmp-service>
@@ -185,71 +199,6 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>io.fabric8</groupId>
-                        <artifactId>fabric8-maven-plugin</artifactId>
-                        <version>${fabric8.maven.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>fmp</id>
-                                <goals>
-                                    <goal>resource</goal>
-                                    <goal>helm</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>integration</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>io.fabric8</groupId>
-                        <artifactId>fabric8-maven-plugin</artifactId>
-                        <version>${fabric8.maven.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>fmp</id>
-                                <goals>
-                                    <goal>resource</goal>
-                                    <goal>build</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${maven-failsafe-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>run-integration-tests</id>
-                                <phase>integration-test</phase>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <skipTests>false</skipTests>
-                            <skipITs>false</skipITs>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
-
-
-
-
+    
 </project>

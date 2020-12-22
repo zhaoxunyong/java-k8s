@@ -1,10 +1,10 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: account-service
+  name: springcloudk8sdiscovery
   namespace: default
   labels:
-    app: account-service
+    app: springcloudk8sdiscovery
     group: com.xwallet
     version: 0.0.1-SNAPSHOT
     provider: fabric8
@@ -12,21 +12,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: account-service
+      app: springcloudk8sdiscovery
       group: com.xwallet
       version: 0.0.1-SNAPSHOT
       provider: fabric8
   template:
     metadata:
       labels:
-        app: account-service
+        app: springcloudk8sdiscovery
         group: com.xwallet
         version: 0.0.1-SNAPSHOT
         provider: fabric8
     spec:
       containers:
-      - name: account-service
-        #image: registry.gcalls.cn/xwallet/account-service:0.0.1-SNAPSHOT
+      - name: springcloudk8sdiscovery
+        #image: registry.gcalls.cn/xwallet/springcloudk8sdiscovery:0.0.1-SNAPSHOT
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

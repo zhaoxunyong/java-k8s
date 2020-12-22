@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: account-service
+  name: springcloudk8sdiscovery
   namespace: default
   labels:
-    app: account-service
+    app: springcloudk8sdiscovery
     group: com.xwallet
     version: 0.0.1-SNAPSHOT
     provider: fabric8
@@ -17,7 +17,7 @@ spec:
     targetPort: 8080
     # nodePort: 30000
   selector:
-    app: account-service
+    app: springcloudk8sdiscovery
     group: com.xwallet
     version: 0.0.1-SNAPSHOT
     provider: fabric8

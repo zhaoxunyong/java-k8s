@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: web-service
-  namespace: dave
+  namespace: default
   labels:
     app: web-service
     group: com.xwallet
