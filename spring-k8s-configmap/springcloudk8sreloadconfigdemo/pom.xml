@@ -125,9 +125,9 @@
      <profiles>
         <profile>
             <id>k8s</id>
-            <properties>
-                <spring.profile>default</spring.profile>
-            </properties>
+<!--             <properties> -->
+<!--                 <spring.profile>default</spring.profile> -->
+<!--             </properties> -->
             <build>
                 <plugins>
                     <plugin>
