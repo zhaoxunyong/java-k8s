@@ -10,13 +10,13 @@ data:
       message: Say Goodbye
     ---
     spring:
-      profiles: development
+      profiles: dev
     greeting:
       message: Say Hello to the Developers
     farewell:
       message: Say Goodbye to the Developers
     ---
     spring:
-      profiles: production
+      profiles: prod
     greeting:
       message: Say Hello to the Ops

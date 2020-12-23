@@ -19,7 +19,7 @@
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
         <spring-cloud-commons.version>2.1.2.RELEASE</spring-cloud-commons.version>
         <spring-cloud-netflix.version>2.1.2.RELEASE</spring-cloud-netflix.version>
-        <spring-cloud-kubernetes.version>1.0.5.RELEASE</spring-cloud-kubernetes.version>
+        <spring-cloud-kubernetes.version>1.0.4.RELEASE</spring-cloud-kubernetes.version>
         <maven-checkstyle-plugin.failsOnError>false</maven-checkstyle-plugin.failsOnError>
         <maven-checkstyle-plugin.failsOnViolation>false</maven-checkstyle-plugin.failsOnViolation>
         <maven-checkstyle-plugin.includeTestSourceDirectory>false</maven-checkstyle-plugin.includeTestSourceDirectory>
