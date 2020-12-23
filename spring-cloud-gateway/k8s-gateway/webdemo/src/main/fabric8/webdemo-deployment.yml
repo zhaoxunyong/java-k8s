@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: webdemo
+  namespace: default
+  labels:
+    app: webdemo
+    group: com.xwallet
+    version: 0.0.1-SNAPSHOT
+    provider: fabric8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webdemo
+      group: com.xwallet
+      version: 0.0.1-SNAPSHOT
+      provider: fabric8
+  template:
+    metadata:
+      labels:
+        app: webdemo
+        group: com.xwallet
+        version: 0.0.1-SNAPSHOT
+        provider: fabric8
+    spec:
+      containers:
+      - name: webdemo
+        #image: registry.gcalls.cn/xwallet/webdemo:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

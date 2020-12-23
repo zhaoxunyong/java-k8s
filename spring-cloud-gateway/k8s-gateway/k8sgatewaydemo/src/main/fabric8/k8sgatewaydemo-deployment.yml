@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: k8sgatewaydemo
+  namespace: default
+  labels:
+    app: k8sgatewaydemo
+    group: com.xwallet
+    version: 0.0.1-SNAPSHOT
+    provider: fabric8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8sgatewaydemo
+      group: com.xwallet
+      version: 0.0.1-SNAPSHOT
+      provider: fabric8
+  template:
+    metadata:
+      labels:
+        app: k8sgatewaydemo
+        group: com.xwallet
+        version: 0.0.1-SNAPSHOT
+        provider: fabric8
+    spec:
+      containers:
+      - name: k8sgatewaydemo
+        #image: registry.gcalls.cn/xwallet/k8sgatewaydemo:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
