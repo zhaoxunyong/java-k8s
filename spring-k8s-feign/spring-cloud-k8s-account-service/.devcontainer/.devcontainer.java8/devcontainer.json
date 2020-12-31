@@ -1,0 +1,60 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.137.0/containers/java
+{
+	"name": "employee",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			// Update the VARIANT arg to pick a Java version: 11, 14
+			"VARIANT": "8"
+		}
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"java.home": "/Developer/java/jdk-11.0.9",
+		"maven.executable.path": "/Developer/apache-maven-3.3.9/bin/mvn",
+      	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
+      	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
+		"java.configuration.runtimes": [
+			{
+			  "name": "JavaSE-1.8",
+			  "path": "/Developer/java/jdk1.8.0_241",
+			  "default":  true
+			},
+			{
+			  "name": "JavaSE-11",
+			  "path": "/Developer/java/jdk-11.0.9"
+			}
+		]
+	},
+	
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"vscjava.vscode-java-pack"
+	],
+
+	// "workspaceMount": "source=your-volume-name-here,target=/workspace,type=volume",
+	// "workspaceFolder": "/app",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/employee,type=bind,consistency=cached",
+	"workspaceFolder": "/Developer/workspace/employee",
+	"mounts": [
+		"source=F:\\docker,target=/Developer/docker,type=bind,consistency=cached",
+		// "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
+		"source=F:\\apache-tomcat-7.0.50,target=/Developer/apache-tomcat-7.0.50,type=bind,consistency=cached",
+		"source=C:\\Users\\Dave.zhao\\.kube,target=/root/.kube,type=bind,consistency=cached"
+	],
+	"remoteEnv": {
+		"KUBERNETES_NAMESPACE": "default"
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "source /etc/profile",
+
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "root"
+}
