@@ -32,10 +32,13 @@
 		"ms-azuretools.vscode-docker"
 	],
 
-	// "workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/fisco,type=bind,consistency=cached",
-	"workspaceMount": "source=fisco,target=/Developer/workspace/fisco,type=volume",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/fisco,type=bind,consistency=cached",
+	// "workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
 	// "workspaceFolder": "/Developer/workspace/fisco",
-	"workspaceFolder": "/home/dev/fisco/console",
+	"workspaceFolder": "~/fisco/console",
+	// "mounts": [
+	// 	"source=C:\\Users\\Dave.zhao\\.kube,target=/home/dev/.kube,type=bind,consistency=cached"
+	// ],
 	"mounts": [ 
 		// "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
 		// "source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
