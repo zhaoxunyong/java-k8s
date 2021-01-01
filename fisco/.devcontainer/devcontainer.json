@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.137.0/containers/java
 {
-	"name": "account-service",
+	"name": "fisco",
 	"dockerFile": "Dockerfile",
 	// "runArgs": ["--cap-add=NET_ADMIN", "--cap-add=NET_BIND_SERVICE"],
 	"runArgs": ["--privileged"],
@@ -9,44 +9,45 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"java.home": "/Developer/java/jdk-11.0.9",
-		"maven.executable.path": "/Developer/apache-maven-3.3.9/bin/mvn",
-      	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
-      	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
-		"java.configuration.runtimes": [
-			{
-			  "name": "JavaSE-1.8",
-			  "path": "/Developer/java/jdk1.8.0_241",
-			  "default":  true
-			},
-			{
-			  "name": "JavaSE-11",
-			  "path": "/Developer/java/jdk-11.0.9"
-			}
-		]
+		// "java.home": "/Developer/java/jdk-11.0.9",
+		// "maven.executable.path": "/Developer/apache-maven-3.3.9/bin/mvn",
+      	// "java.configuration.maven.globalSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
+      	// "java.configuration.maven.userSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
+		// "java.configuration.runtimes": [
+		// 	{
+		// 	  "name": "JavaSE-1.8",
+		// 	  "path": "/Developer/java/jdk1.8.0_241",
+		// 	  "default":  true
+		// 	},
+		// 	{
+		// 	  "name": "JavaSE-11",
+		// 	  "path": "/Developer/java/jdk-11.0.9"
+		// 	}
+		// ]
 	},
 	
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"vscjava.vscode-java-pack",
+		// "vscjava.vscode-java-pack",
 		"ms-azuretools.vscode-docker"
 	],
 
-	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/fisco,type=bind,consistency=cached",
 	// "workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
-	"workspaceFolder": "/Developer/workspace/account-service",
+	// "workspaceFolder": "/Developer/workspace/fisco",
+	"workspaceFolder": "~/fisco/console",
 	// "mounts": [
 	// 	"source=C:\\Users\\Dave.zhao\\.kube,target=/home/dev/.kube,type=bind,consistency=cached"
 	// ],
 	"mounts": [ 
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
-		"source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
+		// "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		// "source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
+		// "source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
 	],
 	// "overrideCommand": false,
 	"remoteEnv": {
 		// "DOCKER_HOST": "tcp://192.168.80.98:2375",
-		"KUBERNETES_NAMESPACE": "default"
+		// "KUBERNETES_NAMESPACE": "default"
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

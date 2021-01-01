@@ -4,6 +4,8 @@
 
 USERNAME=$1
 
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+
 cat > /etc/apt/sources.list <<EOF
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
@@ -49,32 +51,28 @@ EOF
 sysctl -p
 fi
 
-cat >> /etc/profile.d/java.sh << EOF
-export JAVA_HOME=/Developer/java/jdk1.8.0_241
-export M2_HOME=/Developer/apache-maven-3.3.9
-export GRADLE_USER_HOME=/Developer/.gradle
-export PATH=\$JAVA_HOME/bin:\$M2_HOME/bin:\$PATH
-EOF
+# cat >> /etc/profile.d/java.sh << EOF
+# export JAVA_HOME=/Developer/java/jdk1.8.0_241
+# export M2_HOME=/Developer/apache-maven-3.3.9
+# export GRADLE_USER_HOME=/Developer/.gradle
+# export PATH=\$JAVA_HOME/bin:\$M2_HOME/bin:\$PATH
+# EOF
 
-. /etc/profile
-# /home/$USERNAME/.bashrc
+# . /etc/profile
 
-git config --global user.name "dave.zhao"
-git config --global user.email dave.zhao@zerofinance.com
-git config --global core.autocrlf false
-git config --global core.safecrlf warn
-git config --global core.filemode false
-git config --global core.whitespace cr-at-eol
-git config --global credential.helper store
+# git config --global user.name "$USERNAME"
+# git config --global user.email $USERNAME@zerofinance.com
+# git config --global core.autocrlf false
+# git config --global core.safecrlf warn
+# git config --global core.filemode false
+# git config --global core.whitespace cr-at-eol
+# git config --global credential.helper store
 
-sudo apt-get install -y bash-completion
+# sudo apt-get install -y bash-completion
 
 cat >> /home/$USERNAME/.bashrc <<EOF
 alias ll='ls -l'
 export LANG=zh_CN.UTF-8
-alias k=kubectl
-source <(kubectl completion bash | sed s/kubectl/k/g)
-source /usr/share/bash-completion/bash_completion
 
 function proxy_off(){
     unset http_proxy
@@ -83,31 +81,11 @@ function proxy_off(){
 }
 function proxy_on() {
     export no_proxy="127.0.0.1,localhost,10.0.0.0/8,172.0.0.0/8,192.168.0.0/16,*.zerofinance.net,*.aliyun.com,*.163.com,*.docker-cn.com,registry.gcalls.cn"
-    export http_proxy="http://192.168.101.175:1082"
+    export http_proxy="http://192.168.3.38:1082"
     export https_proxy=$http_proxy
     echo -e "The proxy has been opened!"
 }
 EOF
 
-# source /home/$USERNAME/.bashrc
+source /home/$USERNAME/.bashrc
 
-#https://www.cnblogs.com/763977251-sg/p/11837130.html
-#Docker installation
-#https://aka.ms/vscode-remote/samples/docker-from-docker
-apt-get -y install apt-transport-https ca-certificates software-properties-common
-# step 2: 安装GPG证书
-curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | apt-key add -
-# Step 3: 写入软件源信息
-add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
-# Step 4: 更新并安装 Docker-CE
-apt-get -y update
-apt install python3 -y
-apt-get -y install docker-ce
-
-sudo touch /var/run/docker.sock
-sudo gpasswd -a $USERNAME docker
-sudo chown $USERNAME.$USERNAME /var/run/docker.sock
-
-#telepresence
-curl -s https://packagecloud.io/install/repositories/datawireio/telepresence/script.deb.sh | bash
-apt install --no-install-recommends telepresence -y
