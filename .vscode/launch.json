@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch TelepresenceK8sApplication",
+            "request": "launch",
+            "mainClass": "com.ctl.telepresencek8s.TelepresenceK8sApplication",
+            "projectName": "telepresence-k8s"
+        },
+        {
+            "type": "java",
+            "name": "Remote-Debug-telepresence-k8s",
+            "request": "attach",
+            "projectName": "telepresence-k8s",
+            "hostName": "localhost",
+            "port": 8000
+        }
+    ]
+}

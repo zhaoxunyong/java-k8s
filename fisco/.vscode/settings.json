@@ -1,0 +1,5 @@
+{
+    // 代码缩进修改成4个空格
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4
+}
