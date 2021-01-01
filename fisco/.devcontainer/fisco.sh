@@ -31,6 +31,7 @@ cp -r nodes/127.0.0.1/sdk/* console/conf/
 #启动并使用控制台
 # cd ~/fisco/console && bash start.sh
 cd ~/fisco/console && echo "exit" | bash start.sh
+echo "----------------fisco-bcos done-----------------------------"
 
 echo "cd ~/fisco && bash nodes/127.0.0.1/start_all.sh" >> ~/.bashrc
 . ~/.bashrc
