@@ -22,7 +22,7 @@ EOF
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt install sudo
-apt install git net-tools curl wget vim screen curl -y
+apt install git net-tools iputils-ping telnet curl wget vim screen curl -y
 
 echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
