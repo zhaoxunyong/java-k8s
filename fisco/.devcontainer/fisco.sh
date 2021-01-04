@@ -1,12 +1,16 @@
+#!/bin/bash
 
 #https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/installation.html
-
-echo "----------------fisco-bcos-----------------------------"
+echo "----------------fisco-bcos start-----------------------------"
+#安装依赖
 sudo apt install -y openssl curl
 
+#创建操作目录
 cd ~ && mkdir -p fisco && cd fisco
 ## 下载脚本
 curl -#LO https://github.com/FISCO-BCOS/FISCO-BCOS/releases/download/v2.7.1/build_chain.sh && chmod u+x build_chain.sh
+
+#搭建单群组4节点联盟链
 #命令执行成功会输出All completed。如果执行出错，请检查nodes/build.log文件中的错误信息。
 bash build_chain.sh -l 127.0.0.1:4 -p 30300,20200,8545
 
@@ -27,7 +31,9 @@ cd ~/fisco && curl -#LO https://github.com/FISCO-BCOS/console/releases/download/
 
 # 最新版本控制台使用如下命令拷贝配置文件
 cp -n console/conf/config-example.toml console/conf/config.toml
+# 配置控制台证书
 cp -r nodes/127.0.0.1/sdk/* console/conf/
+
 #启动并使用控制台
 # cd ~/fisco/console && bash start.sh
 cd ~/fisco/console && echo "exit" | bash start.sh

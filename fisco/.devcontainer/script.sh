@@ -81,7 +81,7 @@ function proxy_off(){
 }
 function proxy_on() {
     export no_proxy="127.0.0.1,localhost,10.0.0.0/8,172.0.0.0/8,192.168.0.0/16,*.zerofinance.net,*.aliyun.com,*.163.com,*.docker-cn.com,registry.gcalls.cn"
-    export http_proxy="http://192.168.3.38:1082"
+    export http_proxy="http://192.168.101.175:1082"
     export https_proxy=$http_proxy
     echo -e "The proxy has been opened!"
 }
