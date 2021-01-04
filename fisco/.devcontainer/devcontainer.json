@@ -4,7 +4,7 @@
 	"name": "fisco",
 	"dockerFile": "Dockerfile",
 	// "runArgs": ["--cap-add=NET_ADMIN", "--cap-add=NET_BIND_SERVICE"],
-	"runArgs": ["--privileged"],
+	// "runArgs": ["--privileged"],
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
