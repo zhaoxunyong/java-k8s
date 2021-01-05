@@ -17,7 +17,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 RUN chown -R $USERNAME.$USERNAME /Developer
 ADD tools/apache-maven-3.3.9.tar.gz /Developer/
 
-ADD tools/jdk-8u241-linux-x64.tar.gz /Developer/java/
+ADD tools/jdk-8u202-linux-x64.tar.gz /Developer/java/
 ADD tools/jdk-11.0.9_linux-x64_bin.tar.gz /Developer/java/
 ADD tools/kubectl /usr/local/bin/kubectl
 

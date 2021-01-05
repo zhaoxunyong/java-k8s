@@ -50,7 +50,7 @@ sysctl -p
 fi
 
 cat >> /etc/profile.d/java.sh << EOF
-export JAVA_HOME=/Developer/java/jdk1.8.0_241
+export JAVA_HOME=/Developer/java/jdk1.8.0_202
 export M2_HOME=/Developer/apache-maven-3.3.9
 export GRADLE_USER_HOME=/Developer/.gradle
 export PATH=\$JAVA_HOME/bin:\$M2_HOME/bin:\$PATH
