@@ -49,6 +49,7 @@ EOF
 sysctl -p
 fi
 
+apt-get install openjdk-11-jdk -y
 cat >> /etc/profile.d/java.sh << EOF
 export JAVA_HOME=/Developer/java/jdk1.8.0_202
 export M2_HOME=/Developer/apache-maven-3.3.9
@@ -75,6 +76,7 @@ export LANG=zh_CN.UTF-8
 alias k=kubectl
 source <(kubectl completion bash | sed s/kubectl/k/g)
 source /usr/share/bash-completion/bash_completion
+alias docker="docker -H=registry.gcalls.cn:2375"
 
 function proxy_off(){
     unset http_proxy

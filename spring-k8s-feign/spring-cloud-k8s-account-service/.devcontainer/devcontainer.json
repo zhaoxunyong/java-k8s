@@ -32,17 +32,19 @@
 		"ms-azuretools.vscode-docker"
 	],
 
-	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
-	// "workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
+	// For Remote
+	"workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
 	"workspaceFolder": "/Developer/workspace/account-service",
-	// "mounts": [
-	// 	"source=C:\\Users\\Dave.zhao\\.kube,target=/home/dev/.kube,type=bind,consistency=cached"
+	
+	// For Local
+	// "workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
+	// "workspaceFolder": "/Developer/workspace/account-service",
+	// "mounts": [ 
+	// 	"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+	// 	"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
+	// 	"source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
 	// ],
-	"mounts": [ 
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
-		"source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
-	],
+
 	// "overrideCommand": false,
 	"remoteEnv": {
 		// "DOCKER_HOST": "tcp://192.168.80.98:2375",
