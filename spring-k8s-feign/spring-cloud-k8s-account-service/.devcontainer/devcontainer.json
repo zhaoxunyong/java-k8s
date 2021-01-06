@@ -9,7 +9,7 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"java.home": "/Developer/java/jdk-11.0.9",
+		// "java.home": "/Developer/java/jdk-11.0.9",
 		"maven.executable.path": "/Developer/apache-maven-3.3.9/bin/mvn",
       	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
       	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
@@ -18,11 +18,11 @@
 			  "name": "JavaSE-1.8",
 			  "path": "/Developer/java/jdk1.8.0_241",
 			  "default":  true
-			},
+			}/* ,
 			{
 			  "name": "JavaSE-11",
 			  "path": "/Developer/java/jdk-11.0.9"
-			}
+			} */
 		]
 	},
 	
