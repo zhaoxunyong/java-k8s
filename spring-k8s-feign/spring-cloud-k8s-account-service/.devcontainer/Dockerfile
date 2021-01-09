@@ -15,16 +15,21 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
 
 RUN chown -R $USERNAME.$USERNAME /Developer
-ADD tools/apache-maven-3.3.9.tar.gz /Developer/
+# ADD tools/apache-maven-3.3.9.tar.gz /Developer/
+ADD sources.list /etc/apt/sources.list
+RUN apt update && apt install wget -y && wget 'http://mirrors.cnnic.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz' \
+-O /Developer/apache-maven-3.3.9-bin.tar.gz
+RUN cd /Developer/ && tar zxvf apache-maven-3.3.9-bin.tar.gz
+ADD settings.xml /Developer/apache-maven-3.3.9/conf/
 
-ADD tools/jdk-8u202-linux-x64.tar.gz /Developer/java/
+# ADD tools/jdk-8u202-linux-x64.tar.gz /Developer/java/
 # ADD tools/jdk-11.0.9_linux-x64_bin.tar.gz /Developer/java/
-ADD tools/kubectl /usr/local/bin/kubectl
+# ADD tools/kubectl /usr/local/bin/kubectl
 
 ADD script.sh /Developer/
 RUN bash /Developer/script.sh $USERNAME
 
 USER $USERNAME
 
-RUN mkdir /home/$USERNAME/.kube/
-ADD config /home/$USERNAME/.kube/
+# RUN mkdir /home/$USERNAME/.kube/
+# ADD config /home/$USERNAME/.kube/

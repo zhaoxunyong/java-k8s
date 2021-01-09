@@ -4,18 +4,18 @@
 
 USERNAME=$1
 
-cat > /etc/apt/sources.list <<EOF
-deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
-EOF
+# cat > /etc/apt/sources.list <<EOF
+# deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+# deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+# deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+# deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+# deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+# EOF
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
@@ -49,9 +49,20 @@ EOF
 sysctl -p
 fi
 
+apt-get install openjdk-8-jdk -y
+#Retry...
+if [[ $? != 0 ]]; then
+    # sudo apt install -y default-jdk
+    apt-get install openjdk-8-jdk -y
+fi
 apt-get install openjdk-11-jdk -y
+#Retry...
+if [[ $? != 0 ]]; then
+    apt-get install openjdk-11-jdk -y
+fi
+
 cat >> /etc/profile.d/java.sh << EOF
-export JAVA_HOME=/Developer/java/jdk1.8.0_202
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export M2_HOME=/Developer/apache-maven-3.3.9
 export GRADLE_USER_HOME=/Developer/.gradle
 export PATH=\$JAVA_HOME/bin:\$M2_HOME/bin:\$PATH
@@ -85,7 +96,7 @@ function proxy_off(){
 }
 function proxy_on() {
     export no_proxy="127.0.0.1,localhost,10.0.0.0/8,172.0.0.0/8,192.168.0.0/16,*.zerofinance.net,*.aliyun.com,*.163.com,*.docker-cn.com,registry.gcalls.cn"
-    export http_proxy="http://192.168.101.175:1082"
+    export http_proxy="http://192.168.3.38:1082"
     export https_proxy=$http_proxy
     echo -e "The proxy has been opened!"
 }
@@ -113,3 +124,10 @@ sudo chown $USERNAME.$USERNAME /var/run/docker.sock
 #telepresence
 curl -s https://packagecloud.io/install/repositories/datawireio/telepresence/script.deb.sh | bash
 apt install --no-install-recommends telepresence -y
+
+#kubectl
+#https://blog.csdn.net/nklinsirui/article/details/80581286
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - 
+echo "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main" >> /etc/apt/sources.list
+apt-get update
+apt-get install -y kubectl

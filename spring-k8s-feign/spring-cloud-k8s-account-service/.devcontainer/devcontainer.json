@@ -16,13 +16,14 @@
 		"java.configuration.runtimes": [
 			{
 			  "name": "JavaSE-1.8",
-			  "path": "/Developer/java/jdk1.8.0_241",
+			//   "path": "/Developer/java/jdk1.8.0_202",
+			  "path": "/usr/lib/jvm/java-8-openjdk-amd64",
 			  "default":  true
-			}/* ,
+			} ,
 			{
 			  "name": "JavaSE-11",
-			  "path": "/Developer/java/jdk-11.0.9"
-			} */
+			  "path": "/usr/lib/jvm/java-11-openjdk-amd64"
+			}
 		]
 	},
 	
@@ -33,17 +34,17 @@
 	],
 
 	// For Remote
-	"workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
-	"workspaceFolder": "/Developer/workspace/account-service",
+	// "workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
+	// "workspaceFolder": "/Developer/workspace/account-service",
 	
 	// For Local
-	// "workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
-	// "workspaceFolder": "/Developer/workspace/account-service",
-	// "mounts": [ 
-	// 	"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-	// 	"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
-	// 	"source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
-	// ],
+	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
+	"workspaceFolder": "/Developer/workspace/account-service",
+	"mounts": [ 
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
+		// "source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
+	],
 
 	// "overrideCommand": false,
 	"remoteEnv": {
