@@ -60,7 +60,8 @@ apt-get install openjdk-11-jdk -y
 if [[ $? != 0 ]]; then
     apt-get install openjdk-11-jdk -y
 fi
-
+# sudo update-alternatives --config java
+# sudo update-alternatives --config javac
 cat >> /etc/profile.d/java.sh << EOF
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export M2_HOME=/Developer/apache-maven-3.3.9
