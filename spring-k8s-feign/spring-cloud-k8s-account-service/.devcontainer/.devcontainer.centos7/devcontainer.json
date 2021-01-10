@@ -3,24 +3,26 @@
 {
 	"name": "account-service",
 	"dockerFile": "Dockerfile",
-	// "runArgs": ["--init"],
+	// "runArgs": ["--cap-add=NET_ADMIN", "--cap-add=NET_BIND_SERVICE"],
+	"runArgs": ["--privileged", "--cap-add=NET_ADMIN", "--cap-add=NET_BIND_SERVICE"],
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"java.home": "/Developer/java/jdk-11.0.9",
+		// "java.home": "/Developer/java/jdk-11.0.9",
 		"maven.executable.path": "/Developer/apache-maven-3.3.9/bin/mvn",
       	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
       	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
 		"java.configuration.runtimes": [
 			{
 			  "name": "JavaSE-1.8",
-			  "path": "/Developer/java/jdk1.8.0_241",
+			//   "path": "/Developer/java/jdk1.8.0_202",
+			  "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64",
 			  "default":  true
-			},
+			} ,
 			{
 			  "name": "JavaSE-11",
-			  "path": "/Developer/java/jdk-11.0.9"
+			  "path": "/usr/lib/jvm/java-11-openjdk-11.0.9.11-2.el7_9.x86_64"
 			}
 		]
 	},
@@ -31,16 +33,19 @@
 		"ms-azuretools.vscode-docker"
 	],
 
-	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
+	// For Remote
 	// "workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
+	// "workspaceFolder": "/Developer/workspace/account-service",
+	
+	// For Local
+	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
 	"workspaceFolder": "/Developer/workspace/account-service",
-	// "mounts": [
-	// 	"source=C:\\Users\\Dave.zhao\\.kube,target=/home/dev/.kube,type=bind,consistency=cached"
-	// ],
 	"mounts": [ 
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind"
+		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
+		// "source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
 	],
+
 	// "overrideCommand": false,
 	"remoteEnv": {
 		// "DOCKER_HOST": "tcp://192.168.80.98:2375",

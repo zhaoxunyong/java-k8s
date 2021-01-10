@@ -1,5 +1,6 @@
 #!/bin/bash
 
+USERNAME=$1
 # yum install -y wget sudo
 # RUN groupadd dev && useradd -r -g dev dev
 # USERNAME=dev
@@ -76,10 +77,9 @@ su - root -c "ulimit -a"
 # chmod +x /etc/rc.d/rc.local
 # systemctl enable rc-local.service
 
-# yum -y install gcc kernel-devel
-mv -f /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+# mv -f /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 #wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 
 yum -y install epel-release
 
@@ -139,20 +139,49 @@ yum -y install bind-utils bridge-utils ntpdate setuptool iptables \
  system-config-securitylevel-tui system-config-network-tui \
  ntsysv net-tools lrzsz telnet lsof vim dos2unix unix2dos zip unzip
 
-# mkdir -p /works/soft
-# cd /works/soft
-# cp -a /vagrant/soft /works/
-# tar zxvf jdk-8u241-linux-x64.tar.gz 
-# cat > /etc/profile.d/java.sh << EOF
-cat >> /etc/profile << EOF
-export JAVA_HOME=/Developer/java/jdk1.8.0_241
+yum -y install java-11-openjdk java-11-openjdk-devel
+yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+# sudo update-alternatives --config java
+# sudo update-alternatives --config javac
+cat >> /etc/profile.d/java.sh << EOF
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64
 export M2_HOME=/Developer/apache-maven-3.3.9
 export GRADLE_USER_HOME=/Developer/.gradle
 export PATH=\$JAVA_HOME/bin:\$M2_HOME/bin:\$PATH
 EOF
 
-. /etc/profile
-# /home/$USERNAME/.bashrc
+# . /etc/profile
+
+git config --global user.name "dave.zhao"
+git config --global user.email dave.zhao@zerofinance.com
+git config --global core.autocrlf false
+git config --global core.safecrlf warn
+git config --global core.filemode false
+git config --global core.whitespace cr-at-eol
+git config --global credential.helper store
+
+yum install -y bash-completion
+
+cat >> /home/$USERNAME/.bashrc <<EOF
+alias ll='ls -l'
+export LANG=zh_CN.UTF-8
+alias k=kubectl
+source <(kubectl completion bash | sed s/kubectl/k/g)
+source /usr/share/bash-completion/bash_completion
+# alias docker="docker -H=registry.gcalls.cn:2375"
+
+function proxy_off(){
+    unset http_proxy
+    unset https_proxy
+    echo -e "The proxy has been closed!"
+}
+function proxy_on() {
+    export no_proxy="127.0.0.1,localhost,10.0.0.0/8,172.0.0.0/8,192.168.0.0/16,*.zerofinance.net,*.aliyun.com,*.163.com,*.docker-cn.com,registry.gcalls.cn"
+    export http_proxy="http://192.168.3.38:1082"
+    export https_proxy=$http_proxy
+    echo -e "The proxy has been opened!"
+}
+EOF
 
 #https://www.cnblogs.com/763977251-sg/p/11837130.html
 #Docker installation
@@ -163,6 +192,18 @@ sudo yum makecache fast
 sudo yum -y install docker-ce
 
 touch /var/run/docker.sock
-sudo gpasswd -a dev docker
-chown dev.dev /var/run/docker.sock
+sudo gpasswd -a $USERNAME docker
+chown $USERNAME.$USERNAME /var/run/docker.sock
 
+#Kubectl
+#https://blog.csdn.net/nklinsirui/article/details/80581286
+cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF
+yum install -y kubectl

@@ -3,6 +3,7 @@ FROM centos:7
 RUN mkdir -p /Developer/java /Developer/workspace
 WORKDIR /Developer/workspace
 # RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
+ADD Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
 RUN yum install -y wget sudo
 # RUN groupadd dev && useradd -r -g dev dev
 ARG USERNAME=dev
@@ -17,11 +18,18 @@ RUN groupadd --gid $USER_GID $USERNAME \
   && chmod 0440 /etc/sudoers.d/$USERNAME
 
 RUN chown -R $USERNAME.$USERNAME /Developer
-ADD tools/apache-maven-3.3.9.tar.gz /Developer/
 
-ADD tools/jdk-8u241-linux-x64.tar.gz /Developer/java/
-ADD tools/jdk-11.0.9_linux-x64_bin.tar.gz /Developer/java/
-ADD tools/kubectl /usr/local/bin/kubectl
+# ADD tools/apache-maven-3.3.9.tar.gz /Developer/
+# ADD tools/jdk-8u241-linux-x64.tar.gz /Developer/java/
+# ADD tools/jdk-11.0.9_linux-x64_bin.tar.gz /Developer/java/
+# ADD tools/kubectl /usr/local/bin/kubectl
+
+RUN wget 'http://mirrors.cnnic.cn/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz' \
+-O /Developer/apache-maven-3.3.9-bin.tar.gz
+RUN cd /Developer/ && tar zxvf apache-maven-3.3.9-bin.tar.gz
+ADD settings.xml /Developer/apache-maven-3.3.9/conf/
 
 ADD script.sh /Developer/
-RUN bash /Developer/script.sh
+RUN bash /Developer/script.sh $USERNAME
+
+USER $USERNAME
