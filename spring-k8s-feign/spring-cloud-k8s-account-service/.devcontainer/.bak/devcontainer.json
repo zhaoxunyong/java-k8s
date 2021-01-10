@@ -17,12 +17,12 @@
 			{
 			  "name": "JavaSE-1.8",
 			//   "path": "/Developer/java/jdk1.8.0_202",
-			  "path": "/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64",
+			  "path": "/usr/lib/jvm/java-8-openjdk-amd64",
 			  "default":  true
 			} ,
 			{
 			  "name": "JavaSE-11",
-			  "path": "/usr/lib/jvm/java-11-openjdk-11.0.9.11-2.el7_9.x86_64"
+			  "path": "/usr/lib/jvm/java-11-openjdk-amd64"
 			}
 		]
 	},
