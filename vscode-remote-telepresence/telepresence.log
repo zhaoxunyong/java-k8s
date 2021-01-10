@@ -1,0 +1,407 @@
+   0.0 TEL | Telepresence 0.108 launched at Wed Jan  6 13:34:06 2021
+   0.0 TEL |   /usr/bin/telepresence --run curl hello
+   0.0 TEL | uname: uname_result(system='Linux', node='b76119d4f900', release='4.19.128-microsoft-standard', version='#1 SMP Tue Jun 23 12:58:10 UTC 2020', machine='x86_64', processor='x86_64')
+   0.0 TEL | Platform: linux
+   0.0 TEL | WSL: False
+   0.0 TEL | Python 3.6.9 (default, Oct  8 2020, 12:12:24)
+   0.0 TEL | [GCC 8.4.0]
+   0.0 TEL | BEGIN SPAN main.py:40(main)
+   0.0 TEL | BEGIN SPAN startup.py:83(set_kube_command)
+   0.0 TEL | Found kubectl -> /usr/bin/kubectl
+   0.0 TEL | [1] Capturing: kubectl config current-context
+   0.1 TEL | [1] captured in 0.05 secs.
+   0.1 TEL | [2] Capturing: kubectl --context docker-desktop version --short
+   0.1 TEL | [2] captured in 0.07 secs.
+   0.1 TEL | [3] Capturing: kubectl --context docker-desktop config view -o json
+   0.2 TEL | [3] captured in 0.05 secs.
+   0.2 TEL | [4] Capturing: kubectl --context docker-desktop api-versions
+   0.3 TEL | [4] captured in 0.07 secs.
+   0.3 TEL | Command: kubectl 1.20.1
+   0.3 TEL | Context: docker-desktop, namespace: default, version: 1.19.3
+   0.3 TEL | Looks like we're in a local VM, e.g. minikube.
+   0.3 TEL | END SPAN startup.py:83(set_kube_command)    0.2s
+   0.3 TEL | Found ssh -> /usr/bin/ssh
+   0.3 TEL | [5] Capturing: ssh -V
+   0.3 TEL | [5] captured in 0.00 secs.
+   0.3 TEL | Found curl -> /usr/bin/curl
+   0.3 TEL | Found sshuttle-telepresence -> /usr/libexec/sshuttle-telepresence
+   0.3 TEL | Found conntrack -> /usr/sbin/conntrack
+   0.3 TEL | Found iptables -> /sbin/iptables
+   0.3 TEL | Found sudo -> /usr/bin/sudo
+   0.3 TEL | [6] Running: sudo -n echo -n
+   0.3 TEL | [6] ran in 0.01 secs.
+   0.3 TEL | [7] Capturing: sudo iptables --list
+   0.3 TEL | [7] captured in 0.01 secs.
+   0.3 >>> | Starting proxy with method 'vpn-tcp', which has the following limitations: All processes are affected, only one telepresence can run per machine, and you can't use other VPNs. You may need to add cloud hosts and headless services with --also-proxy. For a full list of method limitations see https://telepresence.io/reference/methods.html
+   0.3 TEL | Found sshfs -> /usr/bin/sshfs
+   0.3 TEL | Found fusermount -> /bin/fusermount
+   0.3 >>> | Volumes are rooted at $TELEPRESENCE_ROOT. See https://telepresence.io/howto/volumes.html for details.
+   0.3 TEL | [8] Running: kubectl --context docker-desktop --namespace default get pods telepresence-connectivity-check --ignore-not-found
+   0.3 TEL | [8] ran in 0.07 secs.
+   1.0 TEL | Scout info: {'latest_version': '0.108', 'application': 'telepresence', 'notices': []}
+   1.0 TEL | BEGIN SPAN deployment.py:208(create_new_deployment)
+   1.0 >>> | Starting network proxy to cluster using new Deployment telepresence-1609940046-8663886-1006
+   1.0 TEL | [9] Running: kubectl --context docker-desktop --namespace default delete --ignore-not-found svc,deploy --selector=telepresence=bb53ae31a6e946449d209976fec0ed37
+   1.1   9 | No resources found
+   1.1 TEL | [9] ran in 0.10 secs.
+   1.1 TEL | [10] Running: kubectl --context docker-desktop --namespace default create -f -
+   1.3  10 | deployment.apps/telepresence-1609940046-8663886-1006 created
+   1.3 TEL | [10] ran in 0.19 secs.
+   1.3 TEL | END SPAN deployment.py:208(create_new_deployment)    0.3s
+   1.3 TEL | BEGIN SPAN remote.py:158(get_remote_info)
+   1.3 TEL | [11] Capturing: kubectl --context docker-desktop --namespace default get deploy telepresence-1609940046-8663886-1006 -o json
+   1.4  11 | {
+   1.4  11 |     "apiVersion": "apps/v1",
+   1.4  11 |     "kind": "Deployment",
+   1.4  11 |     "metadata": {
+   1.4  11 |         "annotations": {
+   1.4  11 |             "deployment.kubernetes.io/revision": "1"
+   1.4  11 |         },
+   1.4  11 |         "creationTimestamp": "2021-01-06T13:34:08Z",
+   1.4  11 |         "generation": 1,
+   1.4  11 |         "labels": {
+   1.4  11 |             "telepresence": "bb53ae31a6e946449d209976fec0ed37"
+   1.4  11 |         },
+   1.4  11 |         "managedFields": [
+   1.4  11 |             {
+   1.4  11 |                 "apiVersion": "apps/v1",
+   1.4  11 |                 "fieldsType": "FieldsV1",
+   1.4  11 |                 "fieldsV1": {
+   1.4  11 |                     "f:metadata": {
+   1.4  11 |                         "f:annotations": {
+   1.4  11 |                             ".": {},
+   1.4  11 |                             "f:deployment.kubernetes.io/revision": {}
+   1.4  11 |                         }
+   1.4  11 |                     },
+   1.4  11 |                     "f:status": {
+   1.4  11 |                         "f:conditions": {
+   1.4  11 |                             ".": {},
+   1.4  11 |                             "k:{\"type\":\"Available\"}": {
+   1.4  11 |                                 ".": {},
+   1.4  11 |                                 "f:lastTransitionTime": {},
+   1.4  11 |                                 "f:lastUpdateTime": {},
+   1.4  11 |                                 "f:message": {},
+   1.4  11 |                                 "f:reason": {},
+   1.4  11 |                                 "f:status": {},
+   1.4  11 |                                 "f:type": {}
+   1.4  11 |                             },
+   1.4  11 |                             "k:{\"type\":\"Progressing\"}": {
+   1.4  11 |                                 ".": {},
+   1.4  11 |                                 "f:lastTransitionTime": {},
+   1.4  11 |                                 "f:lastUpdateTime": {},
+   1.4  11 |                                 "f:message": {},
+   1.4  11 |                                 "f:reason": {},
+   1.4  11 |                                 "f:status": {},
+   1.4  11 |                                 "f:type": {}
+   1.4  11 |                             }
+   1.4  11 |                         },
+   1.4  11 |                         "f:observedGeneration": {},
+   1.4  11 |                         "f:replicas": {},
+   1.4  11 |                         "f:unavailableReplicas": {},
+   1.4  11 |                         "f:updatedReplicas": {}
+   1.4  11 |                     }
+   1.4  11 |                 },
+   1.4  11 |                 "manager": "kube-controller-manager",
+   1.4  11 |                 "operation": "Update",
+   1.4  11 |                 "time": "2021-01-06T13:34:08Z"
+   1.4  11 |             },
+   1.4  11 |             {
+   1.4  11 |                 "apiVersion": "apps/v1",
+   1.4  11 |                 "fieldsType": "FieldsV1",
+   1.4  11 |                 "fieldsV1": {
+   1.4  11 |                     "f:metadata": {
+   1.4  11 |                         "f:labels": {
+   1.4  11 |                             ".": {},
+   1.4  11 |                             "f:telepresence": {}
+   1.4  11 |                         }
+   1.4  11 |                     },
+   1.4  11 |                     "f:spec": {
+   1.4  11 |                         "f:progressDeadlineSeconds": {},
+   1.4  11 |                         "f:replicas": {},
+   1.4  11 |                         "f:revisionHistoryLimit": {},
+   1.4  11 |                         "f:selector": {
+   1.4  11 |                             "f:matchLabels": {
+   1.4  11 |                                 ".": {},
+   1.4  11 |                                 "f:telepresence": {}
+   1.4  11 |                             }
+   1.4  11 |                         },
+   1.4  11 |                         "f:strategy": {
+   1.4  11 |                             "f:rollingUpdate": {
+   1.4  11 |                                 ".": {},
+   1.4  11 |                                 "f:maxSurge": {},
+   1.4  11 |                                 "f:maxUnavailable": {}
+   1.4  11 |                             },
+   1.4  11 |                             "f:type": {}
+   1.4  11 |                         },
+   1.4  11 |                         "f:template": {
+   1.4  11 |                             "f:metadata": {
+   1.4  11 |                                 "f:labels": {
+   1.4  11 |                                     ".": {},
+   1.4  11 |                                     "f:telepresence": {}
+   1.4  11 |                                 }
+   1.4  11 |                             },
+   1.4  11 |                             "f:spec": {
+   1.4  11 |                                 "f:containers": {
+   1.4  11 |                                     "k:{\"name\":\"telepresence-1609940046-8663886-1006\"}": {
+   1.4  11 |                                         ".": {},
+   1.4  11 |                                         "f:env": {
+   1.4  11 |                                             ".": {},
+   1.5  11 |                                             "k:{\"name\":\"TELEPRESENCE_NAMESERVER\"}": {
+   1.5  11 |                                                 ".": {},
+   1.5  11 |                                                 "f:name": {},
+   1.5  11 |                                                 "f:value": {}
+   1.5  11 |                                             }
+   1.5  11 |                                         },
+   1.5  11 |                                         "f:image": {},
+   1.5  11 |                                         "f:imagePullPolicy": {},
+   1.5  11 |                                         "f:name": {},
+   1.5  11 |                                         "f:resources": {
+   1.5  11 |                                             ".": {},
+   1.5  11 |                                             "f:limits": {
+   1.5  11 |                                                 ".": {},
+   1.5  11 |                                                 "f:cpu": {},
+   1.5  11 |                                                 "f:memory": {}
+   1.5  11 |                                             },
+   1.5  11 |                                             "f:requests": {
+   1.5  11 |                                                 ".": {},
+   1.5  11 |                                                 "f:cpu": {},
+   1.5  11 |                                                 "f:memory": {}
+   1.5  11 |                                             }
+   1.5  11 |                                         },
+   1.5  11 |                                         "f:terminationMessagePath": {},
+   1.5  11 |                                         "f:terminationMessagePolicy": {}
+   1.5  11 |                                     }
+   1.5  11 |                                 },
+   1.5  11 |                                 "f:dnsPolicy": {},
+   1.5  11 |                                 "f:restartPolicy": {},
+   1.5  11 |                                 "f:schedulerName": {},
+   1.5  11 |                                 "f:securityContext": {},
+   1.5  11 |                                 "f:terminationGracePeriodSeconds": {}
+   1.5  11 |                             }
+   1.5  11 |                         }
+   1.5  11 |                     }
+   1.5  11 |                 },
+   1.5  11 |                 "manager": "kubectl-create",
+   1.5  11 |                 "operation": "Update",
+   1.5  11 |                 "time": "2021-01-06T13:34:08Z"
+   1.5  11 |             }
+   1.5  11 |         ],
+   1.5  11 |         "name": "telepresence-1609940046-8663886-1006",
+   1.5  11 |         "namespace": "default",
+   1.5  11 |         "resourceVersion": "203438",
+   1.5  11 |         "selfLink": "/apis/apps/v1/namespaces/default/deployments/telepresence-1609940046-8663886-1006",
+   1.5  11 |         "uid": "9c52a304-e80d-4a8d-8316-eefdd3427247"
+   1.5  11 |     },
+   1.5  11 |     "spec": {
+   1.5  11 |         "progressDeadlineSeconds": 600,
+   1.5  11 |         "replicas": 1,
+   1.5  11 |         "revisionHistoryLimit": 10,
+   1.5  11 |         "selector": {
+   1.5  11 |             "matchLabels": {
+   1.5  11 |                 "telepresence": "bb53ae31a6e946449d209976fec0ed37"
+   1.5  11 |             }
+   1.5  11 |         },
+   1.5  11 |         "strategy": {
+   1.5  11 |             "rollingUpdate": {
+   1.5  11 |                 "maxSurge": "25%",
+   1.5  11 |                 "maxUnavailable": "25%"
+   1.5  11 |             },
+   1.5  11 |             "type": "RollingUpdate"
+   1.5  11 |         },
+   1.5  11 |         "template": {
+   1.5  11 |             "metadata": {
+   1.5  11 |                 "creationTimestamp": null,
+   1.5  11 |                 "labels": {
+   1.5  11 |                     "telepresence": "bb53ae31a6e946449d209976fec0ed37"
+   1.5  11 |                 }
+   1.5  11 |             },
+   1.5  11 |             "spec": {
+   1.5  11 |                 "containers": [
+   1.5  11 |                     {
+   1.5  11 |                         "env": [
+   1.5  11 |                             {
+   1.5  11 |                                 "name": "TELEPRESENCE_NAMESERVER",
+   1.5  11 |                                 "value": "8.8.8.8"
+   1.5  11 |                             }
+   1.5  11 |                         ],
+   1.5  11 |                         "image": "datawire/telepresence-k8s:0.108",
+   1.5  11 |                         "imagePullPolicy": "IfNotPresent",
+   1.5  11 |                         "name": "telepresence-1609940046-8663886-1006",
+   1.5  11 |                         "resources": {
+   1.5  11 |                             "limits": {
+   1.5  11 |                                 "cpu": "1",
+   1.5  11 |                                 "memory": "256Mi"
+   1.5  11 |                             },
+   1.5  11 |                             "requests": {
+   1.5  11 |                                 "cpu": "25m",
+   1.5  11 |                                 "memory": "64Mi"
+   1.5  11 |                             }
+   1.5  11 |                         },
+   1.5  11 |                         "terminationMessagePath": "/dev/termination-log",
+   1.5  11 |                         "terminationMessagePolicy": "File"
+   1.5  11 |                     }
+   1.5  11 |                 ],
+   1.5  11 |                 "dnsPolicy": "ClusterFirst",
+   1.5  11 |                 "restartPolicy": "Always",
+   1.5  11 |                 "schedulerName": "default-scheduler",
+   1.5  11 |                 "securityContext": {},
+   1.5  11 |                 "terminationGracePeriodSeconds": 30
+   1.5  11 |             }
+   1.5  11 |         }
+   1.5  11 |     },
+   1.5  11 |     "status": {
+   1.5  11 |         "conditions": [
+   1.5  11 |             {
+   1.5  11 |                 "lastTransitionTime": "2021-01-06T13:34:08Z",
+   1.5  11 |                 "lastUpdateTime": "2021-01-06T13:34:08Z",
+   1.5  11 |                 "message": "Deployment does not have minimum availability.",
+   1.5  11 |                 "reason": "MinimumReplicasUnavailable",
+   1.5  11 |                 "status": "False",
+   1.5  11 |                 "type": "Available"
+   1.5  11 |             },
+   1.5  11 |             {
+   1.5  11 |                 "lastTransitionTime": "2021-01-06T13:34:08Z",
+   1.5  11 |                 "lastUpdateTime": "2021-01-06T13:34:08Z",
+   1.5  11 |                 "message": "ReplicaSet \"telepresence-1609940046-8663886-1006-5c965f66c4\" is progressing.",
+   1.5  11 |                 "reason": "ReplicaSetUpdated",
+   1.5  11 |                 "status": "True",
+   1.5  11 |                 "type": "Progressing"
+   1.5  11 |             }
+   1.5  11 |         ],
+   1.5  11 |         "observedGeneration": 1,
+   1.5  11 |         "replicas": 1,
+   1.5  11 |         "unavailableReplicas": 1,
+   1.5  11 |         "updatedReplicas": 1
+   1.5  11 |     }
+   1.5  11 | }
+   1.5 TEL | [11] captured in 0.14 secs.
+   1.5 TEL | Searching for Telepresence pod:
+   1.5 TEL |   with name telepresence-1609940046-8663886-1006-*
+   1.5 TEL |   with labels {'telepresence': 'bb53ae31a6e946449d209976fec0ed37'}
+   1.5 TEL | [12] Capturing: kubectl --context docker-desktop --namespace default get pod -o json --selector=telepresence=bb53ae31a6e946449d209976fec0ed37
+   1.5 TEL | [12] captured in 0.06 secs.
+   1.5 TEL | Checking telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6
+   1.5 TEL | Looks like we've found our pod!
+   1.5 TEL | BEGIN SPAN remote.py:109(wait_for_pod)
+   1.5 TEL | [13] Running: kubectl --context docker-desktop --namespace default wait --for=condition=ready --timeout=60s pod/telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6
+   4.7  13 | pod/telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6 condition met
+   4.7 TEL | [13] ran in 3.18 secs.
+   4.7 TEL | [14] Capturing: kubectl --context docker-desktop --namespace default get pod telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6 -o json
+   4.8 TEL | [14] captured in 0.07 secs.
+   4.8 TEL | END SPAN remote.py:109(wait_for_pod)    3.3s
+   4.8 TEL | END SPAN remote.py:158(get_remote_info)    3.5s
+   4.8 TEL | BEGIN SPAN connect.py:37(connect)
+   4.8 TEL | [15] Launching kubectl logs: kubectl --context docker-desktop --namespace default logs -f telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6 --container telepresence-1609940046-8663886-1006 --tail=10
+   4.8 TEL | [16] Launching kubectl port-forward: kubectl --context docker-desktop --namespace default port-forward telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6 41007:8022
+   4.8 TEL | [17] Running: ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 -q -p 41007 telepresence@127.0.0.1 /bin/true
+   4.8 TEL | [17] exit 255 in 0.01 secs.
+   4.9  15 | Pod's namespace is 'default'
+   4.9  15 | Listening...
+   4.9  15 | 2021-01-06T13:34:10+0000 [-] Loading ./forwarder.py...
+   4.9  15 | 2021-01-06T13:34:10+0000 [-] SOCKSv5Factory starting on 9050
+   4.9  15 | 2021-01-06T13:34:10+0000 [socks.SOCKSv5Factory#info] Starting factory <socks.SOCKSv5Factory object at 0x7ff23d4977f0>
+   4.9  15 | 2021-01-06T13:34:10+0000 [-] DNSDatagramProtocol starting on 9053
+   4.9  15 | 2021-01-06T13:34:10+0000 [-] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7ff23d4979e8>
+   4.9  15 | 2021-01-06T13:34:10+0000 [-] Loaded.
+   4.9  15 | 2021-01-06T13:34:10+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 20.3.0 (/usr/bin/python3.6 3.6.8) starting up.
+   4.9  15 | 2021-01-06T13:34:10+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+   4.9  16 | Forwarding from 127.0.0.1:41007 -> 8022
+   5.1 TEL | [18] Running: ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 -q -p 41007 telepresence@127.0.0.1 /bin/true
+   5.1  16 | Handling connection for 41007
+   5.2 TEL | [18] ran in 0.17 secs.
+   5.2 >>> | 
+   5.2 >>> | No traffic is being forwarded from the remote Deployment to your local machine. You can use the --expose option to specify which ports you want to forward.
+   5.2 >>> | 
+   5.2 TEL | Launching Web server for proxy poll
+   5.2 TEL | [19] Launching SSH port forward (socks and proxy poll): ssh -N -oServerAliveInterval=1 -oServerAliveCountMax=10 -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 -q -p 41007 telepresence@127.0.0.1 -L127.0.0.1:44285:127.0.0.1:9050 -R9055:127.0.0.1:41427
+   5.2 TEL | END SPAN connect.py:37(connect)    0.4s
+   5.2 TEL | BEGIN SPAN remote_env.py:29(get_remote_env)
+   5.2 TEL | [20] Capturing: kubectl --context docker-desktop --namespace default exec telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6 --container telepresence-1609940046-8663886-1006 -- python3 podinfo.py
+   5.2  16 | Handling connection for 41007
+   5.4 TEL | [20] captured in 0.21 secs.
+   5.4 TEL | END SPAN remote_env.py:29(get_remote_env)    0.2s
+   5.4 TEL | BEGIN SPAN mount.py:30(mount_remote_volumes)
+   5.4 TEL | [21] Running: sshfs -p 41007 -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5 telepresence@127.0.0.1:/ /tmp/tel-gu6c2l_4/fs
+   5.5  16 | Handling connection for 41007
+   5.6 TEL | [21] ran in 0.14 secs.
+   5.6 TEL | END SPAN mount.py:30(mount_remote_volumes)    0.1s
+   5.6 TEL | BEGIN SPAN vpn.py:62(connect_sshuttle)
+   5.6 TEL | BEGIN SPAN cidr.py:113(get_proxy_cidrs)
+   5.6 TEL | END SPAN cidr.py:113(get_proxy_cidrs)    0.0s
+   5.6 TEL | [22] Launching sshuttle: sshuttle-telepresence -v --dns --method nat -e 'ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5' -r telepresence@127.0.0.1:41007 --to-ns 127.0.0.1:9053 192.168.65.0/24 10.96.0.0/12 10.1.0.0/24
+   5.6 TEL | BEGIN SPAN vpn.py:85(connect_sshuttle,sshuttle-wait)
+   5.6 TEL | Wait for vpn-tcp connection: hellotelepresence-0
+   5.6 TEL | [23] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-0")'
+   5.8  22 | Traceback (most recent call last):
+   5.8  22 |   File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+   5.8  22 |     "__main__", mod_spec)
+   5.8  22 |   File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+   5.8  22 |     exec(code, run_globals)
+   5.8  22 |   File "/usr/libexec/sshuttle-telepresence/__main__.py", line 67, in <module>
+   5.8  22 |   File "/usr/libexec/sshuttle-telepresence/.bootstrap/pex/pex_bootstrapper.py", line 12, in <module>
+   5.8  22 |   File "/usr/libexec/sshuttle-telepresence/.bootstrap/pex/interpreter.py", line 23, in <module>
+   5.8  22 |   File "/usr/libexec/sshuttle-telepresence/.bootstrap/pex/vendor/_vendored/packaging/packaging/tags.py", line 7, in <module>
+   5.8  22 | ModuleNotFoundError: No module named 'distutils.util'
+   5.8 TEL | [22] sshuttle: exit 1
+   6.7 TEL | [23] exit 1 in 1.08 secs.
+   6.7 TEL | [24] Capturing: python3 -c 'import socket; socket.gethostbyname("hellotelepresence-0.a.sanity.check.telepresence.io")'
+   6.8 TEL | [24] exit 1 in 0.17 secs.
+   8.8 TEL | CRASH: 1 background process(es) crashed
+   8.8 TEL | Background process (sshuttle) exited with return code 1. Command was:
+   8.8 TEL |   sshuttle-telepresence -v --dns --method nat -e 'ssh -F /dev/null -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -oConnectTimeout=5' -r telepresence@127.0.0.1:41007 --to-ns 127.0.0.1:9053 192.168.65.0/24 10.96.0.0/12 10.1.0.0/24
+   8.8 TEL | 
+   8.8 TEL | Recent output was:
+   8.8 TEL |   Traceback (most recent call last):
+   8.8 TEL |     File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+   8.8 TEL |       "__main__", mod_spec)
+   8.8 TEL |     File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+   8.8 TEL |       exec(code, run_globals)
+   8.8 TEL |     File "/usr/libexec/sshuttle-telepresence/__main__.py", line 67, in <module>
+   8.8 TEL |     File "/usr/libexec/sshuttle-telepresence/.bootstrap/pex/pex_bootstrapper.py", line 12, in <module>
+   8.8 TEL |     File "/usr/libexec/sshuttle-telepresence/.bootstrap/pex/interpreter.py", line 23, in <module>
+   8.8 TEL |     File "/usr/libexec/sshuttle-telepresence/.bootstrap/pex/vendor/_vendored/packaging/packaging/tags.py", line 7, in <module>
+   8.8 TEL |   ModuleNotFoundError: No module named 'distutils.util'
+   8.8 TEL | (calling crash reporter...)
+  30.3 TEL | [25] Running: sudo -n echo -n
+  30.3 TEL | [25] ran in 0.01 secs.
+  34.1 TEL | (proxy checking local liveness)
+  34.1  15 | 2021-01-06T13:34:40+0000 [Poll#info] Checkpoint
+  60.3 TEL | [26] Running: sudo -n echo -n
+  60.4 TEL | [26] ran in 0.02 secs.
+  62.1 >>> | Exit cleanup in progress
+  62.1 TEL | (Cleanup) Kill BG process [22] sshuttle
+  62.1 TEL | (Cleanup) Unmount remote filesystem
+  62.1 TEL | [27] Running: fusermount -z -u /tmp/tel-gu6c2l_4/fs
+  62.1 TEL | [27] ran in 0.00 secs.
+  62.1 TEL | (Cleanup) Kill BG process [19] SSH port forward (socks and proxy poll)
+  62.1 TEL | [19] SSH port forward (socks and proxy poll): exit 0
+  62.1 TEL | (Cleanup) Kill Web server for proxy poll
+  62.2 TEL | (Cleanup) Kill BG process [16] kubectl port-forward
+  62.2 TEL | (Cleanup) Kill BG process [15] kubectl logs
+  62.2 TEL | (Cleanup) Delete new deployment
+  62.2 >>> | Cleaning up Deployment telepresence-1609940046-8663886-1006
+  62.2 TEL | [28] Running: kubectl --context docker-desktop --namespace default delete --ignore-not-found svc,deploy --selector=telepresence=bb53ae31a6e946449d209976fec0ed37
+  62.2 TEL | [15] kubectl logs: exit -15
+  62.2 TEL | [16] kubectl port-forward: exit -15
+  62.2 TEL | Background process (kubectl logs) exited with return code -15. Command was:
+  62.2 TEL |   kubectl --context docker-desktop --namespace default logs -f telepresence-1609940046-8663886-1006-5c965f66c4-p4tr6 --container telepresence-1609940046-8663886-1006 --tail=10
+  62.2 TEL | 
+  62.2 TEL | Recent output was:
+  62.2 TEL |   Listening...
+  62.2 TEL |   2021-01-06T13:34:10+0000 [-] Loading ./forwarder.py...
+  62.2 TEL |   2021-01-06T13:34:10+0000 [-] SOCKSv5Factory starting on 9050
+  62.2 TEL |   2021-01-06T13:34:10+0000 [socks.SOCKSv5Factory#info] Starting factory <socks.SOCKSv5Factory object at 0x7ff23d4977f0>
+  62.2 TEL |   2021-01-06T13:34:10+0000 [-] DNSDatagramProtocol starting on 9053
+  62.2 TEL |   2021-01-06T13:34:10+0000 [-] Starting protocol <twisted.names.dns.DNSDatagramProtocol object at 0x7ff23d4979e8>
+  62.2 TEL |   2021-01-06T13:34:10+0000 [-] Loaded.
+  62.2 TEL |   2021-01-06T13:34:10+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 20.3.0 (/usr/bin/python3.6 3.6.8) starting up.
+  62.2 TEL |   2021-01-06T13:34:10+0000 [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+  62.2 TEL |   2021-01-06T13:34:40+0000 [Poll#info] Checkpoint
+  62.3  28 | deployment.apps "telepresence-1609940046-8663886-1006" deleted
+  62.3 TEL | [28] ran in 0.09 secs.
+  62.3 TEL | (Cleanup) Kill sudo privileges holder
+  62.3 TEL | (Cleanup) Stop time tracking
+  62.3 TEL | END SPAN main.py:40(main)   62.3s
+  62.3 TEL | (Cleanup) Remove temporary directory
+  62.3 TEL | (Cleanup) Save caches
+  62.4 TEL | (sudo privileges holder thread exiting)
