@@ -49,6 +49,7 @@ EOF
 sysctl -p
 fi
 
+#https://openjdk.java.net/install/
 apt-get install openjdk-11-jdk -y
 #Retry...
 if [[ $? != 0 ]]; then
