@@ -139,6 +139,7 @@ yum -y install bind-utils bridge-utils ntpdate setuptool iptables \
  system-config-securitylevel-tui system-config-network-tui \
  ntsysv net-tools lrzsz telnet lsof vim dos2unix unix2dos zip unzip
 
+#https://openjdk.java.net/install/
 yum -y install java-11-openjdk java-11-openjdk-devel
 yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 # sudo update-alternatives --config java

@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "eamodio.gitlens",
+        "vscjava.vscode-java-pack",
+        "Pivotal.vscode-boot-dev-pack",
         "ms-vscode-remote.vscode-remote-extensionpack"
     ]
 }
