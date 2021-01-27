@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AccountServiceApplication<account-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.bolingcavalry.accountservice.AccountServiceApplication",
+            "projectName": "account-service",
+            "args": ""
+        }
+    ]
+}
