@@ -32,6 +32,6 @@ spring.cloud.kubernetes.discovery.all-namespaces: true
 #qotm:
 #    ribbon:
 #        listOfServers: qotm:5000
-#account-service:
+# account-service:
 #    ribbon:
-#        listOfServers: account-service:8080
+#        listOfServers: localhost:8081
