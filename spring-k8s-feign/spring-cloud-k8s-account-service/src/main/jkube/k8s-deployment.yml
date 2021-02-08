@@ -7,7 +7,7 @@ metadata:
     app: account-service
     group: com.xwallet
     version: 0.0.1-SNAPSHOT
-    provider: fabric8
+    provider: jkube
 spec:
   replicas: 1
   selector:
@@ -15,18 +15,18 @@ spec:
       app: account-service
       group: com.xwallet
       version: 0.0.1-SNAPSHOT
-      provider: fabric8
+      provider: jkube
   template:
     metadata:
       labels:
         app: account-service
         group: com.xwallet
         version: 0.0.1-SNAPSHOT
-        provider: fabric8
+        provider: jkube
     spec:
       containers:
       - name: account-service
-        #image: registry.gcalls.cn/xwallet/account-service:0.0.1-SNAPSHOT
+        # image: public-registry.zerofinance.cn/xwallet/account-service:0.0.1-SNAPSHOT
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

@@ -28,6 +28,7 @@
 		<maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
 		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
 		<fabric8.maven.plugin.version>4.4.0</fabric8.maven.plugin.version>
+		<jkube.plugin.version>1.1.0</jkube.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -85,19 +86,6 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
-            <!-- <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>fabric8-maven-plugin</artifactId>
-                <version>${fabric8.maven.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>fmp</id>
-                        <goals>
-                            <goal>resource</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin> -->
         </plugins>
     </build>
 
@@ -109,7 +97,7 @@
             </properties>
             <build>
                 <plugins>
-                    <plugin>
+                    <!-- <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>fabric8-maven-plugin</artifactId>
                         <version>${fabric8.maven.plugin.version}</version>
@@ -132,6 +120,47 @@
                                 <build>
                                     <dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
                                     <contextDir>${project.basedir}/</contextDir>
+                                    <filter>@</filter>
+                                </build>
+                                </image>
+                            </images>
+                            <enricher>
+                                <config>
+                                    <fmp-service>
+                                        <type>NodePort</type>
+                                    </fmp-service>
+                                </config>
+                            </enricher>
+                        </configuration>
+                    </plugin> -->
+                    <plugin>
+                        <groupId>org.eclipse.jkube</groupId>
+                        <artifactId>kubernetes-maven-plugin</artifactId>
+                        <version>${jkube.plugin.version}</version>
+                        <!-- 开启后会push两次，原因未知。
+                        <executions>
+                            <execution>
+                            <goals>
+                                <goal>build</goal>
+                                <goal>push</goal>
+                                <goal>resource</goal>
+                                <goal>deploy</goal>
+                            </goals>
+                            </execution>
+                        </executions> -->
+                        <configuration>   
+                            <!-- <dockerHost>tcp://public-registry.zerofinance.cn:2375</dockerHost> -->
+                            <dockerHost>http://localhost:2375</dockerHost>
+                            <images>
+                                <image>
+                                <name>public-registry.zerofinance.cn/xwallet/${project.name}:${project.version}</name>
+                                <build>
+                                    <!-- https://github.com/eclipse/jkube/issues/149 -->
+                                    <assembly>
+                                        <name>target</name>
+                                    </assembly>
+                                    <dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile> 
+                                    <!-- <contextDir>${project.basedir}</contextDir>  -->
                                     <filter>@</filter>
                                 </build>
                                 </image>
