@@ -146,7 +146,7 @@ yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 # sudo update-alternatives --config javac
 cat >> /etc/profile.d/java.sh << EOF
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64
-export M2_HOME=/Developer/apache-maven-3.3.9
+export M2_HOME=/Developer/apache-maven-3.5.4
 export GRADLE_USER_HOME=/Developer/.gradle
 export PATH=\$JAVA_HOME/bin:\$M2_HOME/bin:\$PATH
 EOF

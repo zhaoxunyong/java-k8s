@@ -151,7 +151,7 @@
                         </executions>
                         <configuration>   
                             <!-- <dockerHost>tcp://public-registry.zerofinance.cn:2375</dockerHost> -->
-                            <dockerHost>http://localhost:2375</dockerHost>
+                            <dockerHost>tcp://localhost:2375</dockerHost>
                             <images>
                                 <image>
                                 <name>public-registry.zerofinance.cn/xwallet/${project.name}:${project.version}</name>

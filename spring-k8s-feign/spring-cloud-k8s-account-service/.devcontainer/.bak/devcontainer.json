@@ -10,9 +10,9 @@
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
 		// "java.home": "/Developer/java/jdk-11.0.9",
-		"maven.executable.path": "/Developer/apache-maven-3.3.9/bin/mvn",
-      	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
-      	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
+		"maven.executable.path": "/Developer/apache-maven-3.5.4/bin/mvn",
+      	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.5.4/conf/settings.xml",
+      	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.5.4/conf/settings.xml",
 		"java.configuration.runtimes": [
 			{
 			  "name": "JavaSE-1.8",
@@ -34,16 +34,16 @@
 	],
 
 	// For Remote
-	// "workspaceMount": "source=account-service-workspace,target=/Developer/workspace/account-service,type=volume",
-	// "workspaceFolder": "/Developer/workspace/account-service",
+	// "workspaceMount": "source=account-service-workspace,target=/workspaces/account-service,type=volume",
+	// "workspaceFolder": "/workspaces/account-service",
 	
 	// For Local
-	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/account-service,type=bind,consistency=cached",
-	"workspaceFolder": "/Developer/workspace/account-service",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/account-service,type=bind,consistency=cached",
+	"workspaceFolder": "/workspaces/account-service",
 	"mounts": [ 
 		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
 		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
-		// "source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/Developer/workspace/web-service,type=bind,consistency=cached"
+		// "source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/workspaces/web-service,type=bind,consistency=cached"
 	],
 
 	// "overrideCommand": false,

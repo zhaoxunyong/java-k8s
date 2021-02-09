@@ -2,7 +2,7 @@
 # FROM registry.cn-shenzhen.aliyuncs.com/zerofinance/container:20.04
 # FROM zerofinance/devcontainer:7
 FROM registry.cn-shenzhen.aliyuncs.com/zerofinance/container:7
-WORKDIR /Developer/workspace
+WORKDIR /workspaces
 
 USER dev
 

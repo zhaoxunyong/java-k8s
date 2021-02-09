@@ -14,9 +14,9 @@
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"java.home": "/Developer/java/jdk-11.0.9",
-		"maven.executable.path": "/Developer/apache-maven-3.3.9/bin/mvn",
-      	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
-      	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.3.9/conf/settings.xml",
+		"maven.executable.path": "/Developer/apache-maven-3.5.4/bin/mvn",
+      	"java.configuration.maven.globalSettings": "/Developer/apache-maven-3.5.4/conf/settings.xml",
+      	"java.configuration.maven.userSettings": "/Developer/apache-maven-3.5.4/conf/settings.xml",
 		"java.configuration.runtimes": [
 			{
 			  "name": "JavaSE-1.8",
@@ -37,8 +37,8 @@
 
 	// "workspaceMount": "source=your-volume-name-here,target=/workspace,type=volume",
 	// "workspaceFolder": "/app",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/Developer/workspace/employee,type=bind,consistency=cached",
-	"workspaceFolder": "/Developer/workspace/employee",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/employee,type=bind,consistency=cached",
+	"workspaceFolder": "/workspaces/employee",
 	"mounts": [
 		"source=F:\\docker,target=/Developer/docker,type=bind,consistency=cached",
 		// "source=try-node-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",

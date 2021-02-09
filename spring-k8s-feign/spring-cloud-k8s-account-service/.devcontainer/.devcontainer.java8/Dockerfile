@@ -21,10 +21,10 @@ RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shangh
 #     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
 #     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-RUN mkdir -p /Developer/java /Developer/workspace
+RUN mkdir -p /Developer/java /workspaces
 RUN chown -R $USERNAME.$USERNAME /Developer
 
-ADD tools/apache-maven-3.3.9.tar.gz /Developer/
+ADD tools/apache-maven-3.5.4.tar.gz /Developer/
 ADD tools/jdk-8u241-linux-x64.tar.gz /Developer/java/
 ADD tools/jdk-11.0.9_linux-x64_bin.tar.gz /Developer/java/
 COPY tools/kubectl /usr/local/bin/kubectl
