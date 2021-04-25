@@ -7,7 +7,7 @@ WORKDIR /workspaces
 USER dev
 
 #telepresence
-RUN sudo yum install torsocks sshfs conntrack python3 -y
-RUN git clone https://github.com/telepresenceio/telepresence.git /Developer/telepresence \
-    && cd /Developer/telepresence \
-    && sudo env PREFIX=/usr/local ./install.sh
+# RUN sudo yum install torsocks sshfs conntrack python3 -y
+# RUN git clone https://github.com/telepresenceio/telepresence.git /Developer/telepresence \
+#     && cd /Developer/telepresence \
+#     && sudo env PREFIX=/usr/local ./install.sh

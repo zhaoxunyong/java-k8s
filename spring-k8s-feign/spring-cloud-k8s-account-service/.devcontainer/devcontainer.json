@@ -34,17 +34,17 @@
 	],
 
 	// For Remote
-	// "workspaceMount": "source=account-service-workspace,target=/workspaces/account-service,type=volume",
-	// "workspaceFolder": "/workspaces/account-service",
+	"workspaceMount": "source=account-service-workspace,target=/workspaces/account-service,type=volume",
+	"workspaceFolder": "/workspaces/account-service",
 	
 	// For Local
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/account-service,type=bind,consistency=cached",
-	"workspaceFolder": "/workspaces/account-service",
-	"mounts": [ 
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
-		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
-		// "source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/workspaces/web-service,type=bind,consistency=cached"
-	],
+	// "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/account-service,type=bind,consistency=cached",
+	// "workspaceFolder": "/workspaces/account-service",
+	// "mounts": [ 
+	// 	"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+	// 	"source=${env:HOME}${env:USERPROFILE}/.kube,target=/home/dev/.kube,type=bind",
+	// 	// "source=D:\\Developer\\workspace\\java-k8s\\spring-k8s-feign\\spring-cloud-k8s-web-service,target=/workspaces/web-service,type=bind,consistency=cached"
+	// ],
 
 	// "overrideCommand": false,
 	"remoteEnv": {
